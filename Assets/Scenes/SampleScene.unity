@@ -12131,7 +12131,7 @@ GameObject:
   - component: {fileID: 1384401288}
   - component: {fileID: 1384401287}
   m_Layer: 0
-  m_Name: Map2
+  m_Name: Mundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
