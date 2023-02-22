@@ -8874,7 +8874,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1873867173}
+        m_TargetAssemblyTypeName: Testing_Input_System, Assembly-CSharp
+        m_MethodName: MoveLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 35d07f1c-6744-4972-b06c-b00a9e04073b
     m_ActionName: Movement/Move[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
@@ -8893,6 +8905,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 03cf0778-3032-4b38-86b2-f725c4b96820
     m_ActionName: Movement/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1873867173}
+        m_TargetAssemblyTypeName: Testing_Input_System, Assembly-CSharp
+        m_MethodName: MoveRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 69cec6f6-f981-4b8f-ba9e-a91f20d4f632
+    m_ActionName: Movement/Move_Right[/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
