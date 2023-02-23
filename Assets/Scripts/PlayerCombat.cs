@@ -51,7 +51,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy != playerCollider)
-                enemy.GetComponent<PlayerLife>().TakeDamage(attackDamage);
+                enemy.GetComponent<Player>().TakeDamage(attackDamage);
         }
     }
 

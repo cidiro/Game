@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerLife : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    [SerializeField] private int playerID;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private TextMeshProUGUI textMesh;
     
@@ -34,12 +33,19 @@ public class PlayerLife : MonoBehaviour
     {
         animator.SetBool("dead", true);
         rigidbody.bodyType = RigidbodyType2D.Static;
-        Debug.Log(name + " died");
+        
+        Invoke("EndGame", 3f);
     }
     
     private void DisablePlayer()
     {
         gameObject.SetActive(false);
     }
-    
+
+    private void EndGame()
+    {
+        GameManager.Winner = (playerID == 1 ? 2 : 1);
+        GameManager.EndGame();
+    }
+
 }

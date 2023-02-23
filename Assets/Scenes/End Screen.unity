@@ -751,6 +751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Image: {fileID: 5798845}
+  player2Image: {fileID: 923335886}
 --- !u!1 &923335884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Image: {fileID: 5798845}
+  player2Image: {fileID: 923335886}
 --- !u!1 &2012698112
 GameObject:
   m_ObjectHideFlags: 0

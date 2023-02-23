@@ -8074,6 +8074,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1621313675470066430, guid: c0aa045bd57a7ae4c9a78c6b4d8cb915, type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1621313675470066431, guid: c0aa045bd57a7ae4c9a78c6b4d8cb915, type: 3}
       propertyPath: attackRate
       value: 5
@@ -8090,6 +8094,10 @@ PrefabInstance:
     - target: {fileID: 4520970995110876677, guid: 022f0e3c9d025684691bb34f8b4002cf, type: 3}
       propertyPath: m_Name
       value: VirtualGuy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520970995110876720, guid: 022f0e3c9d025684691bb34f8b4002cf, type: 3}
+      propertyPath: playerID
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4520970995110876731, guid: 022f0e3c9d025684691bb34f8b4002cf, type: 3}
       propertyPath: m_RootOrder
