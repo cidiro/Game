@@ -527,7 +527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit Game
+  m_text: Quit Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 06f79a978d0edf042b056be27e3bd8d8, type: 2}
   m_sharedMaterial: {fileID: 2056214295889237874, guid: 06f79a978d0edf042b056be27e3bd8d8, type: 2}
@@ -616,8 +616,9 @@ GameObject:
   - component: {fileID: 877688548}
   - component: {fileID: 877688547}
   - component: {fileID: 877688546}
+  - component: {fileID: 877688549}
   m_Layer: 5
-  m_Name: Exit Game Button
+  m_Name: Quit Game Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,7 +688,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 877688547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 877688549}
+        m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &877688547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,6 +739,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877688544}
   m_CullTransparentMesh: 1
+--- !u!114 &877688549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877688544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &923335884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1072,7 @@ GameObject:
   - component: {fileID: 1912865089}
   - component: {fileID: 1912865088}
   - component: {fileID: 1912865087}
+  - component: {fileID: 1912865090}
   m_Layer: 5
   m_Name: Play Again Button
   m_TagString: Untagged
@@ -1118,7 +1144,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912865088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1912865090}
+        m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912865088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1195,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912865085}
   m_CullTransparentMesh: 1
+--- !u!114 &1912865090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912865085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2012698112
 GameObject:
   m_ObjectHideFlags: 0
