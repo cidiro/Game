@@ -12,6 +12,8 @@ public class AttackP2 : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private AudioSource attackSound;
+    [SerializeField] private AudioSource impactSound;
     
     private Collider2D playerCollider;
     private InputsPlayer playerInputs;
@@ -35,14 +37,17 @@ public class AttackP2 : MonoBehaviour
             else
                 animator.SetTrigger("SwingB");
             
+            attackSound.Play();
             swing = !swing;
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
             
             foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy != playerCollider)
+                if (enemy != playerCollider){
                     enemy.GetComponent<Player>().TakeDamage(attackDamage);
+                    impactSound.Play();
+                }
             }
             nextAttackTime = Time.time + 1f / attackRate;
         }
