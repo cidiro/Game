@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int playerID;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private TextMeshProUGUI textMesh;
+    [SerializeField] private AudioSource deathSound;
     
     private int currentHealth;
     private Animator animator;
@@ -33,7 +34,8 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("dead", true);
         rigidbody.bodyType = RigidbodyType2D.Static;
-        
+        deathSound.Play();
+        Destroy(textMesh.gameObject);
         Invoke("EndGame", 3f);
     }
     
