@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateAnimationState();
     }
-    
+
     private void UpdateAnimationState()
     {
         MovementState state;

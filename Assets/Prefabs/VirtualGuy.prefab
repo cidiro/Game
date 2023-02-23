@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4520970995110876733}
   m_Layer: 7
   m_Name: VirtualGuy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a9c4a21505b8c489d829cef3e0def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
   maxHealth: 100
   textMesh: {fileID: 4520970994712783054}
 --- !u!114 &4520970995110876735
