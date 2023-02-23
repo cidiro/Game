@@ -6,15 +6,18 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
-    
-    [SerializeField] private Transform attackPoint;
+    [SerializeField] private int attackDamage = 20;
     [SerializeField] private float attackRange = 0.5f;
+    [SerializeField] private float attackRate = 2f;
+    
+    [SerializeField] private Animator animator;
+    [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayers;
     
     private Collider2D playerCollider;
 
     private bool swing;
+    private float nextAttackTime;
     
     private void Start()
     {
@@ -23,9 +26,13 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
     
@@ -44,7 +51,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy != playerCollider)
-                enemy.GetComponent<PlayerLife>().TakeDamage(20);
+                enemy.GetComponent<PlayerLife>().TakeDamage(attackDamage);
         }
     }
 

@@ -149,10 +149,10 @@ GameObject:
   - component: {fileID: 4520970995110876728}
   - component: {fileID: 4520970995110876678}
   - component: {fileID: 4520970995110876679}
+  - component: {fileID: 4520970995110876720}
   - component: {fileID: 4520970995110876735}
   - component: {fileID: 4520970995110876734}
   - component: {fileID: 4520970995110876733}
-  - component: {fileID: 4520970995110876720}
   m_Layer: 7
   m_Name: VirtualGuy
   m_TagString: Untagged
@@ -314,6 +314,20 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 14
   jumpSoundEffect: {fileID: 0}
+--- !u!114 &4520970995110876720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520970995110876677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a9c4a21505b8c489d829cef3e0def7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  textMesh: {fileID: 4520970994712783054}
 --- !u!114 &4520970995110876735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,9 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b14fca85b36c6e4c8bcf77c6567c41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 20
+  attackRange: 1
+  attackRate: 2
   animator: {fileID: 4520970995693938640}
   attackPoint: {fileID: 4520970995693938642}
-  attackRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -422,20 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d3396510900514db172e126b8804ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4520970995110876720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4520970995110876677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a9c4a21505b8c489d829cef3e0def7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  textMesh: {fileID: 4520970994712783054}
 --- !u!1 &4520970995693938655
 GameObject:
   m_ObjectHideFlags: 0
