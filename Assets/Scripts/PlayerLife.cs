@@ -1,38 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Animator anim;
-
-    [SerializeField] private AudioSource deathSoundEffect;
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private TextMeshProUGUI textMesh;
+    
+    private int currentHealth;
+    private Animator animator;
+    private Rigidbody2D rigidbody;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    public void TakeDamage(int damage)
     {
-        if (collision.gameObject.CompareTag("Trap"))
-        {
-            Die();
-        }
+        currentHealth -= damage;
+        animator.SetTrigger("hit");
+        textMesh.text = currentHealth + "%";
+        
+        
+        if (currentHealth <= 0)
+            Death();
     }
-
-    private void Die()
+    
+    private void Death()
     {
-        // deathSoundEffect.Play();
-        rb.bodyType = RigidbodyType2D.Static;
-        anim.SetTrigger("death");
+        animator.SetBool("dead", true);
+        rigidbody.bodyType = RigidbodyType2D.Static;
+        Debug.Log(name + " died");
     }
-
-    private void RestartLevel()
+    
+    private void DisablePlayer()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameObject.SetActive(false);
     }
+    
 }

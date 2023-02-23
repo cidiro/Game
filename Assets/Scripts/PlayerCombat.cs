@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -10,11 +11,17 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
-
+    
+    private Collider2D playerCollider;
 
     private bool swing;
+    
+    private void Start()
+    {
+        playerCollider = GetComponent<Collider2D>();
+    }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -36,7 +43,8 @@ public class PlayerCombat : MonoBehaviour
         
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
+            if (enemy != playerCollider)
+                enemy.GetComponent<PlayerLife>().TakeDamage(20);
         }
     }
 
