@@ -6,9 +6,11 @@ using UnityEngine.InputSystem;
 public class Testing_Input_System: MonoBehaviour
 {
     private Rigidbody2D rb;
+    private PlayerInput pi;
 
     private void Awake() {
         rb=GetComponent<Rigidbody2D>();    
+        pi=GetComponent<PlayerInput>();
     }
     
     public void Jump(InputAction.CallbackContext context ){
@@ -18,12 +20,19 @@ public class Testing_Input_System: MonoBehaviour
         }
     }
 
-    public void MoveLeft(){
-        rb.velocity=new Vector2(-7, rb.velocity.y);             
+    public void MoveLeft(InputAction.CallbackContext context){
+        if(context.performed){
+            rb.velocity=new Vector2(-7, rb.velocity.y);           
+        }
     }
 
-    public void MoveRight(){
+    public void MoveRight(InputAction.CallbackContext context){
         rb.velocity=new Vector2(7, rb.velocity.y);    
     }
 
+    public void StopMoving(InputAction.CallbackContext context){
+        if(context.canceled){
+            rb.velocity=new Vector2(0, rb.velocity.y);
+        }
+    }
 }
