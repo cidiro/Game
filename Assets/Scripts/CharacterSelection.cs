@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharacterSelection : MonoBehaviour
 {
-    [SerializeField]private GameObject player1;
-    [SerializeField]private GameObject player2;
+    public GameObject player1;
+    public GameObject player2;
+    public float player1_x, player1_y, player2_x, player2_y;
     private bool player1Set=false;
     private static CharacterSelection instance;
 
@@ -29,9 +30,15 @@ public class CharacterSelection : MonoBehaviour
             player2=Instantiate(character);
             player2.name=character.name;
             DontDestroyOnLoad(player2);
-            GameManager.StartGame();
+            StartFight();
         }
         
+    }
+    
+    private void StartFight(){
+        GameManager.StartGame();
+        player1.transform.position=new Vector3(player1_x, player1_y, 0);
+        player2.transform.position=new Vector3(player2_x, player2_y, 0);
     }
     public GameObject getPlayer1(){
         return player1;
