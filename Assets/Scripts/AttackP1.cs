@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class AttackP1 : MonoBehaviour
 {
     [SerializeField] private int attackDamage = 20;
@@ -27,7 +28,8 @@ public class AttackP1 : MonoBehaviour
         playerInputs.Movement.Attack.Enable();
 
         playerInputs.Movement.Attack.performed += Attack;
-    }    
+    }
+    
     private void Attack(InputAction.CallbackContext context)
     {
         if(Time.time >= nextAttackTime){

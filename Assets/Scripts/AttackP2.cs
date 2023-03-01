@@ -29,6 +29,7 @@ public class AttackP2 : MonoBehaviour
 
         playerInputs.MovementP2.Attack.performed += Attack;
     }
+    
     private void Attack(InputAction.CallbackContext context)
     {
         if(Time.time >= nextAttackTime){
