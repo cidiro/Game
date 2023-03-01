@@ -22,6 +22,8 @@ public class CharacterSelection : MonoBehaviour
         if(!player1Set){
             player1=Instantiate(character);
             player1.name=character.name;
+            player1.GetComponent<Player>().setID(1);
+            player1.GetComponent<PlayerMovement>().EnableControlls();
             DontDestroyOnLoad(player1);
             player1Set=true;
             return;
@@ -29,6 +31,8 @@ public class CharacterSelection : MonoBehaviour
         if(character.name!=player1.name){
             player2=Instantiate(character);
             player2.name=character.name;
+            player2.GetComponent<Player>().setID(2);
+            player2.GetComponent<PlayerMovement>().EnableControlls();
             DontDestroyOnLoad(player2);
             StartFight();
         }

@@ -49,5 +49,11 @@ public class Player : MonoBehaviour
         GameManager.Winner = (playerID == 1 ? 2 : 1);
         GameManager.EndGame();
     }
+    public int getID(){
+        return playerID;
+    }
+    public void setID(int id){
+        playerID=id;
+    }
 
 }

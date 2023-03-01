@@ -26,7 +26,6 @@ public class AttackP2 : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         playerInputs=new InputsPlayer();
         playerInputs.MovementP2.Attack.Enable();
-
         playerInputs.MovementP2.Attack.performed += Attack;
     }
     private void Attack(InputAction.CallbackContext context)

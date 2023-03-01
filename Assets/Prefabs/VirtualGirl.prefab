@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 920616575}
   - component: {fileID: 920616576}
   - component: {fileID: 920616564}
-  - component: {fileID: 920616565}
   - component: {fileID: 920616573}
+  - component: {fileID: 4848133092917925311}
   m_Layer: 7
   m_Name: VirtualGirl
   m_TagString: Player
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a9c4a21505b8c489d829cef3e0def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 2
+  playerID: 0
   maxHealth: 100
   textMesh: {fileID: 1621313676919022760}
   deathSound: {fileID: 920616576}
@@ -497,20 +497,6 @@ MonoBehaviour:
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &920616565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621313675470066407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d257b9c6b01e9478137de16668fba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 7
-  jumpSoundEffect: {fileID: 0}
 --- !u!114 &920616573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +519,20 @@ MonoBehaviour:
     m_Bits: 128
   attackSound: {fileID: 920616574}
   impactSound: {fileID: 920616575}
+--- !u!114 &4848133092917925311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621313675470066407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc30d962cfff6a47977d6f8cfae0e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 7
+  jumpSoundEffect: {fileID: 0}
 --- !u!1 &1621313675717123643
 GameObject:
   m_ObjectHideFlags: 0

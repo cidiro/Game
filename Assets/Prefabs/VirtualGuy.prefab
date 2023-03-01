@@ -153,8 +153,8 @@ GameObject:
   - component: {fileID: 2135711633}
   - component: {fileID: 2135711634}
   - component: {fileID: 2135711635}
-  - component: {fileID: 2135711623}
   - component: {fileID: 2135711624}
+  - component: {fileID: 6984706338463088199}
   m_Layer: 7
   m_Name: VirtualGuy
   m_TagString: Player
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a9c4a21505b8c489d829cef3e0def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 1
+  playerID: 0
   maxHealth: 100
   textMesh: {fileID: 4520970994712783054}
   deathSound: {fileID: 2135711635}
@@ -660,20 +660,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2135711623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4520970995110876677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabf3ba5f5d53ea4b8ddb1549ca6b962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 7
-  jumpSoundEffect: {fileID: 0}
 --- !u!114 &2135711624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +682,20 @@ MonoBehaviour:
     m_Bits: 128
   attackSound: {fileID: 2135711633}
   impactSound: {fileID: 2135711634}
+--- !u!114 &6984706338463088199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520970995110876677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc30d962cfff6a47977d6f8cfae0e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 7
+  jumpSoundEffect: {fileID: 0}
 --- !u!1 &4520970995693938655
 GameObject:
   m_ObjectHideFlags: 0
