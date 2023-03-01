@@ -1,49 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement: MonoBehaviour
 {
+    private Vector2 movement;
     private Rigidbody2D rb;
-    private BoxCollider2D coll;
+    private PlayerInput input;
+    [SerializeField]private float movementSpeed=5f;
+    private InputsPlayer inputsPlayer;
+    private enum MovementState { idle, running, jumping, falling }
     private SpriteRenderer sprite;
     private Animator anim;
-
-    [SerializeField] private LayerMask jumpableGround;
-
-    private float dirX = 0f;
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 14f;
-
-    private enum MovementState { idle, running, jumping, falling }
-
+    private Vector2 inputVec;
+    private int idPlayer;
     [SerializeField] private AudioSource jumpSoundEffect;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<BoxCollider2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+    //private Collider2D coll;
+    //[SerializeField] private LayerMask jumpableGround;
+
+    private void Awake() {
+        rb=GetComponent<Rigidbody2D>();
+        input=GetComponent<PlayerInput>();
+        //coll = GetComponent<BoxCollider2D>();
+        sprite=GetComponent<SpriteRenderer>();  
+        anim=GetComponent<Animator>();
+
+
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            //jumpSoundEffect.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    public void EnableControlls(){
+        inputsPlayer= new InputsPlayer();
+        idPlayer=GetComponent<Player>().getID();
+        if(idPlayer==1){
+            Debug.Log(gameObject.name+"Subscrito a movement");
+            inputsPlayer.Movement.Enable();
+            inputsPlayer.Movement.Jump.performed += Jump;
+        }else{
+            Debug.Log(gameObject.name+"Subscrito a movement2");
+            inputsPlayer.MovementP2.Enable();
+            inputsPlayer.MovementP2.Jump.performed += Jump;
         }
-
-        UpdateAnimationState();
     }
 
-    private void UpdateAnimationState()
+    private void Jump(InputAction.CallbackContext context){
+        if(rb.velocity.y>-.1f && rb.velocity.y<.1f){
+            //jumpSoundEffect.Play();
+            rb.velocity=new Vector2(rb.velocity.x, 14f);
+        }
+       
+    }
+
+    private void Update() {
+        if(idPlayer!=0){
+            if(idPlayer==1){
+                inputVec=inputsPlayer.Movement.Move.ReadValue<Vector2>();
+            }else{
+                inputVec=inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
+            }
+            rb.velocity=new Vector2(inputVec.x*movementSpeed, rb.velocity.y);
+            UpdateAnimationState(inputVec.x);
+        }
+    }
+
+
+    private void UpdateAnimationState(float dirX)
     {
         MovementState state;
 
@@ -74,8 +94,8 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     }
 
-    private bool IsGrounded()
+    /*private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-    }
+    }*/
 }
