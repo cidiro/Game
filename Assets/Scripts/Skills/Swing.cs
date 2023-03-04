@@ -9,7 +9,7 @@ namespace Skills
         
         private SpriteRenderer playerSprite;
 
-        private void Start()
+        new private void Start()
         {
             base.Start();
             Debug.Log("Starting the Swing class...");
@@ -38,6 +38,7 @@ namespace Skills
         {
             if (Time.time >= nextUseTime)
             {
+                Debug.Log("Ataque 2"); //Llega a entrar aqui, pero en si los ataques no hacen nada, asiq no se si es algo del animator, alguna variable o que
                 if (swingState)
                     animator.SetTrigger("SwingA");
                 else

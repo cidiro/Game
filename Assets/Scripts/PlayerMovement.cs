@@ -25,9 +25,8 @@ public class PlayerMovement: MonoBehaviour
         //coll = GetComponent<BoxCollider2D>();
         sprite=GetComponent<SpriteRenderer>();  
         anim=GetComponent<Animator>();
-
-
     }
+
     public void EnableControlls(){
         inputsPlayer= new InputsPlayer();
         idPlayer=GetComponent<Player>().getID();

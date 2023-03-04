@@ -10,7 +10,7 @@ namespace Skills
         [SerializeField] protected Transform attackPoint;
         [SerializeField] protected LayerMask enemyLayers;
         
-        protected void Start() {
+        new protected void Start() {
             base.Start();
             Debug.Log("Starting the Attack class...");
         }

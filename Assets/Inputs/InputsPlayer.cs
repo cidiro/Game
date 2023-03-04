@@ -53,6 +53,24 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack2"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b17eddd-267d-4578-bacc-b139310d0a59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack3"",
+                    ""type"": ""Button"",
+                    ""id"": ""b89d1a76-4178-4a6a-bbbd-ce11d15da389"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +225,28 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3701efe3-12b6-4fe6-a0a2-0afa968f9b50"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ef8e48c-cc26-4d25-9aca-60fcc7a21fea"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -409,6 +449,8 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Attack = m_Movement.FindAction("Attack", throwIfNotFound: true);
+        m_Movement_Attack2 = m_Movement.FindAction("Attack2", throwIfNotFound: true);
+        m_Movement_Attack3 = m_Movement.FindAction("Attack3", throwIfNotFound: true);
         // MovementP2
         m_MovementP2 = asset.FindActionMap("MovementP2", throwIfNotFound: true);
         m_MovementP2_Move = m_MovementP2.FindAction("Move", throwIfNotFound: true);
@@ -478,6 +520,8 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Attack;
+    private readonly InputAction m_Movement_Attack2;
+    private readonly InputAction m_Movement_Attack3;
     public struct MovementActions
     {
         private @InputsPlayer m_Wrapper;
@@ -485,6 +529,8 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Attack => m_Wrapper.m_Movement_Attack;
+        public InputAction @Attack2 => m_Wrapper.m_Movement_Attack2;
+        public InputAction @Attack3 => m_Wrapper.m_Movement_Attack3;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -503,6 +549,12 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Attack2.started += instance.OnAttack2;
+            @Attack2.performed += instance.OnAttack2;
+            @Attack2.canceled += instance.OnAttack2;
+            @Attack3.started += instance.OnAttack3;
+            @Attack3.performed += instance.OnAttack3;
+            @Attack3.canceled += instance.OnAttack3;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -516,6 +568,12 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Attack2.started -= instance.OnAttack2;
+            @Attack2.performed -= instance.OnAttack2;
+            @Attack2.canceled -= instance.OnAttack2;
+            @Attack3.started -= instance.OnAttack3;
+            @Attack3.performed -= instance.OnAttack3;
+            @Attack3.canceled -= instance.OnAttack3;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -600,6 +658,8 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnAttack2(InputAction.CallbackContext context);
+        void OnAttack3(InputAction.CallbackContext context);
     }
     public interface IMovementP2Actions
     {
