@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
         
         //Lo hago como para el jugador1, es decir, si fuera su propio script, pero hay que cambiarlo para que compartan mejor
 
-        
+      
         input = new InputsPlayer();
         input.Movement.Attack.Enable();
         input.Movement.Attack2.Enable(); //Activas los ataques de el player1

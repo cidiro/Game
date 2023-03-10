@@ -34,6 +34,7 @@ public class CharacterSelection : MonoBehaviour
             player2.GetComponent<Player>().setID(2);
             player2.GetComponent<PlayerMovement>().EnableControlls();
             DontDestroyOnLoad(player2);
+            GameManager.addPlayers(player1,player2);
             StartFight();
         }
         

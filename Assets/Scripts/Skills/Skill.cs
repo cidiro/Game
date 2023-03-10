@@ -5,8 +5,7 @@ using UnityEngine;
 
 public abstract class Skill : MonoBehaviour
 {
-    [SerializeField] protected GameObject player;
-    
+    [SerializeField] protected GameObject player; 
     [SerializeField] protected float cooldown = 2f;
 
     protected Animator animator;

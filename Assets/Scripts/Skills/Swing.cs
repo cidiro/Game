@@ -46,8 +46,7 @@ namespace Skills
 
                 swingState = !swingState;
 
-                Collider2D[] hitEnemies =
-                    Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayers);
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayers);
                 foreach (Collider2D enemy in hitEnemies)
                 {
                     if (enemy != playerCollider)

@@ -58,4 +58,8 @@ public class Player : MonoBehaviour
         playerID=id;
     }
 
+    public void RecoverHP(){
+        currentHealth = maxHealth; 
+    }
+
 }

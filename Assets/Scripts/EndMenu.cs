@@ -25,7 +25,8 @@ public class EndMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        GameManager.Replay();
     }
     
     public void QuitGame()
