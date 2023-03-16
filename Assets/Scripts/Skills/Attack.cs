@@ -13,6 +13,8 @@ namespace Skills
         new protected void Start() {
             base.Start();
             Debug.Log("Starting the Attack class...");
+            //enemyLayers = gameObject.layer; Creo que esto la pone como Default aunque tengas un Serialize
+            attackPoint = GetComponent<Transform>();
         }
         
         private void OnDrawGizmosSelected()

@@ -16,8 +16,8 @@ public abstract class Skill : MonoBehaviour
     protected void Start()
     {
         Debug.Log("Starting the Skill class...");
-        animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
         playerCollider = player.GetComponent<Collider2D>();
     }
 

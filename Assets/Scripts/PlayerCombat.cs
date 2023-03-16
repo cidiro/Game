@@ -24,13 +24,27 @@ public class PlayerCombat : MonoBehaviour
 
       
         input = new InputsPlayer();
-        input.Movement.Attack.Enable();
-        input.Movement.Attack2.Enable(); //Activas los ataques de el player1
-        input.Movement.Attack3.Enable();
 
-        input.Movement.Attack.performed += useSkill1;
-        input.Movement.Attack2.performed += useSkill2; //Subscribes las funciones use skill a cada input, por lo que si se pulsa la tecla vinculada a Attack
-        input.Movement.Attack3.performed += useSkill3; //se llamara a useSkill1, Attack2 llamará a useSkill2, etc...
+        if(GetComponent<Player>().getID() == 1){
+            Debug.Log("Suscrito a los ataquesP1"+gameObject.name);
+            input.Movement.Attack.Enable();
+            input.Movement.Attack2.Enable(); //Activas los ataques de el player1
+            input.Movement.Attack3.Enable();
+
+            input.Movement.Attack.performed += useSkill1;
+            input.Movement.Attack2.performed += useSkill2; //Subscribes las funciones use skill a cada input, por lo que si se pulsa la tecla vinculada a Attack
+            input.Movement.Attack3.performed += useSkill3; //se llamara a useSkill1, Attack2 llamará a useSkill2, etc...
+        }else{
+            Debug.Log("Suscrito a los ataquesp2"+gameObject.name);
+            input.MovementP2.Attack.Enable();
+            input.MovementP2.Attack2.Enable();
+            input.MovementP2.Attack3.Enable();
+
+            input.MovementP2.Attack.performed += useSkill1;
+            input.MovementP2.Attack2.performed += useSkill2;
+            input.MovementP2.Attack3.performed += useSkill3;
+        }
+
     }
 
     private void useSkill1(InputAction.CallbackContext context){ //El callback context solo esta porque hace falta para poder subscribir la funcion, pero no

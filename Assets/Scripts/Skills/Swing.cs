@@ -16,8 +16,10 @@ namespace Skills
             
             playerSprite = player.GetComponent<SpriteRenderer>();
             
-            localX = Mathf.Abs(transform.localPosition.x);
-            localY = transform.localPosition.y;
+            //localX = Mathf.Abs(transform.localPosition.x); //Algo de aqui hace que no se vea animacion, supongo que la x queda fuera de plano
+            //localY = transform.localPosition.y;
+            localX=0; //Con esto se ve la animacion, pero siempre a la derecha, cambiar ahora
+            localY=0;
         }
 
         private void Update()
@@ -38,17 +40,19 @@ namespace Skills
         {
             if (Time.time >= nextUseTime)
             {
-                Debug.Log("Ataque 2"); //Llega a entrar aqui, pero en si los ataques no hacen nada, asiq no se si es algo del animator, alguna variable o que
+                Debug.Log("Swing");
                 if (swingState)
                     animator.SetTrigger("SwingA");
                 else
                     animator.SetTrigger("SwingB");
 
                 swingState = !swingState;
-
+                //Debug.Log(LayerMask.LayerToName(enemyLayers)); btw, asi se ve el nombre de una layer
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayers);
+                Debug.Log(hitEnemies.Length);
                 foreach (Collider2D enemy in hitEnemies)
                 {
+                    Debug.Log("collider");
                     if (enemy != playerCollider)
                         enemy.GetComponent<Player>().TakeDamage(attackDamage);
                 }
