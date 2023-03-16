@@ -15,11 +15,8 @@ namespace Skills
             Debug.Log("Starting the Swing class...");
             
             playerSprite = player.GetComponent<SpriteRenderer>();
-            
-            //localX = Mathf.Abs(transform.localPosition.x); //Algo de aqui hace que no se vea animacion, supongo que la x queda fuera de plano
-            //localY = transform.localPosition.y;
-            localX=0; //Con esto se ve la animacion, pero siempre a la derecha, cambiar ahora
-            localY=0;
+            localX = Mathf.Abs(transform.localPosition.x);
+            localY = transform.localPosition.y;
         }
 
         private void Update()
@@ -27,12 +24,12 @@ namespace Skills
             if (playerSprite.flipX)
             {
                 sprite.flipX = true;
-                transform.position = new Vector3(transform.position.x - localX, transform.position.y + localY, 0f);
+                attackPoint.transform.position = new Vector3(transform.parent.position.x - localX, transform.parent.position.y + localY, 0f);
             }
             else
             {
                 sprite.flipX = false;
-                transform.position = new Vector3(transform.position.x + localX, transform.position.y + localY, 0f);
+                attackPoint.transform.position = new Vector3(transform.parent.position.x + localX, transform.parent.position.y + localY, 0f);
             }
         }
 
