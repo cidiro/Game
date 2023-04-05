@@ -8,7 +8,7 @@ namespace Skills
         private float localX, localY;
         
         private SpriteRenderer playerSprite;
-
+        private float lastUse=0;
         [SerializeField] private AudioSource swingDone;
         [SerializeField] private AudioSource swingHit;
         new private void Start()
@@ -37,8 +37,9 @@ namespace Skills
 
         public override void UseSkill()
         {
-            if (Time.time >= nextUseTime)
+            if (Time.time-lastUse >= cooldown)
             {
+                lastUse=Time.time;
                 swingDone.Play();
                 Debug.Log("Swing");
                 if (swingState)
@@ -58,8 +59,6 @@ namespace Skills
                         enemy.GetComponent<Player>().TakeDamage(attackDamage);
                     }
                 }
-                
-                nextUseTime = Time.time + 1f / cooldown;
             }
         }
     }

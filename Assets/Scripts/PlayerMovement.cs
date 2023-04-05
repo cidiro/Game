@@ -15,6 +15,7 @@ public class PlayerMovement: MonoBehaviour
     private Animator anim;
     private Vector2 inputVec;
     private int idPlayer;
+    private bool dashing = false;
     [SerializeField] private AudioSource jumpSoundEffect;
     //private Collider2D coll;
     //[SerializeField] private LayerMask jumpableGround;
@@ -50,8 +51,8 @@ public class PlayerMovement: MonoBehaviour
     }
 
     private void Update() {
-        if(idPlayer!=0){
-            if(idPlayer==1){
+        if(idPlayer!=0 && !dashing){ //Queremos que dashing sea false porque si estas en un dash y se hace el update el dash no va, pq aunque el dash le de la velocity
+            if(idPlayer==1){         //que deberia, el update la cambia tmbn y no va nada, entonces, para eso tenemos que el update se hace si no estamos en un dash
                 inputVec=inputsPlayer.Movement.Move.ReadValue<Vector2>();
             }else{
                 inputVec=inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
@@ -101,6 +102,10 @@ public class PlayerMovement: MonoBehaviour
             }
         }
         return 0f;
+    }
+
+    public void toggleDashing(){
+        dashing = (dashing==false); //Con esto podemos hacerle un toggle sin tener que hacer if(dashing==true){...
     }
     /*private bool IsGrounded()
     {
