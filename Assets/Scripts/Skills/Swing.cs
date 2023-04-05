@@ -9,6 +9,8 @@ namespace Skills
         
         private SpriteRenderer playerSprite;
 
+        [SerializeField] private AudioSource swingDone;
+        [SerializeField] private AudioSource swingHit;
         new private void Start()
         {
             base.Start();
@@ -37,6 +39,7 @@ namespace Skills
         {
             if (Time.time >= nextUseTime)
             {
+                swingDone.Play();
                 Debug.Log("Swing");
                 if (swingState)
                     animator.SetTrigger("SwingA");
@@ -50,8 +53,10 @@ namespace Skills
                 foreach (Collider2D enemy in hitEnemies)
                 {
                     Debug.Log("collider");
-                    if (enemy != playerCollider)
+                    if (enemy != playerCollider){
+                        swingHit.Play();
                         enemy.GetComponent<Player>().TakeDamage(attackDamage);
+                    }
                 }
                 
                 nextUseTime = Time.time + 1f / cooldown;

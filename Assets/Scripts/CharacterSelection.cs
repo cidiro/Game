@@ -19,7 +19,7 @@ public class CharacterSelection : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
     }
     public void addCharacter(GameObject character){
-        if(!player1Set){
+        /*if(!player1Set){
             player1=Instantiate(character);
             player1.name=character.name;
             player1.GetComponent<Player>().setID(1);
@@ -36,7 +36,8 @@ public class CharacterSelection : MonoBehaviour
             DontDestroyOnLoad(player2);
             GameManager.addPlayers(player1,player2);
             StartFight();
-        }
+        }*/
+        GameManager.addPlayer(character);
         
     }
     

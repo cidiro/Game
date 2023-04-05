@@ -32,10 +32,11 @@ public class Player : MonoBehaviour
     
     private void Death()
     {
+        Debug.Log(gameObject.name+ "dies");
         animator.SetBool("dead", true);
         rigidbody.bodyType = RigidbodyType2D.Static;
         deathSound.Play();
-        Destroy(textMesh.gameObject);
+        //Destroy(textMesh.gameObject);
         Invoke("EndGame", 3f);
     }
     
