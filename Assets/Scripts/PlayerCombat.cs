@@ -64,4 +64,27 @@ public class PlayerCombat : MonoBehaviour
     private void useDash(InputAction.CallbackContext context){
         dash.UseSkill();
     }
+    public void disableControls(){
+        if(GetComponent<Player>().getID() == 1){
+            input.Movement.Attack.Disable();
+            input.Movement.Attack2.Disable(); 
+            input.Movement.Attack3.Disable();
+            input.Movement.Dash.Disable();
+
+            input.Movement.Attack.performed -= useSkill1;
+            input.Movement.Attack2.performed -= useSkill2; 
+            input.Movement.Attack3.performed -= useSkill3; 
+            input.Movement.Dash.performed -= useDash;
+        }else{
+            input.MovementP2.Attack.Disable();
+            input.MovementP2.Attack2.Disable();
+            input.MovementP2.Attack3.Disable();
+            input.MovementP2.Dash.Disable();
+
+            input.MovementP2.Attack.performed -= useSkill1;
+            input.MovementP2.Attack2.performed -= useSkill2;
+            input.MovementP2.Attack3.performed -= useSkill3;
+            input.MovementP2.Dash.performed -= useDash;
+        }
+    }
 }

@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 namespace Skills
 {
-    public class Dash : Utility
+    public class Dash : Utility /*****Se me olvido ponerlo en el comment del commit, pero el dash esta en el left shift y en el boton oeste (X en xbox, 
+                                                                                                                                     cuadrado en play)*****/
     {       
         private SpriteRenderer playerSprite; 
         private Rigidbody2D rb;

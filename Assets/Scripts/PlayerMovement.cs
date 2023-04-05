@@ -42,13 +42,23 @@ public class PlayerMovement: MonoBehaviour
         }
     }
 
+    public void disableControls(){
+        idPlayer=GetComponent<Player>().getID();
+        if(idPlayer==1){
+            inputsPlayer.Movement.Disable();
+            inputsPlayer.Movement.Jump.performed -= Jump;
+        }else{
+            inputsPlayer.MovementP2.Disable();
+            inputsPlayer.MovementP2.Jump.performed -= Jump;
+        }
+    }
     private void Jump(InputAction.CallbackContext context){
         if(rb.velocity.y>-.1f && rb.velocity.y<.1f){
             //jumpSoundEffect.Play();
             rb.velocity=new Vector2(rb.velocity.x, 14f);
         }
-       
     }
+
 
     private void Update() {
         if(idPlayer!=0 && !dashing){ //Queremos que dashing sea false porque si estas en un dash y se hace el update el dash no va, pq aunque el dash le de la velocity

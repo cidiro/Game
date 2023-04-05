@@ -41,14 +41,9 @@ public class GameManager : MonoBehaviour
         }
     }
     public static void Replay(){
-        /*Debug.Log("a");
-        player1.transform.position=new Vector3(-3, 1, 0);
-        player1.GetComponent<Rigidbody2D>().bodyType=RigidbodyType2D.Dynamic;  //Ver si mejor crear una copia de 0 en vez de reiniciarles todo
-        player1.GetComponent<Player>().RecoverHP();
-        player2.transform.position=new Vector3(11, 1, 0);
-        player2.GetComponent<Rigidbody2D>().bodyType=RigidbodyType2D.Dynamic;
-        player2.GetComponent<Player>().RecoverHP();*/
+        player1.GetComponent<Player>().disableControls();
         Destroy(player1);
+        player2.GetComponent<Player>().disableControls();
         Destroy(player2);
         
         player1=Instantiate(copyp1);

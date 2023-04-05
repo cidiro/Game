@@ -44,7 +44,10 @@ public class Player : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
+    public void disableControls(){
+        GetComponent<PlayerMovement>().disableControls();
+        GetComponent<PlayerCombat>().disableControls();
+    }
     private void EndGame()
     {
         GameManager.Winner = (playerID == 1 ? 2 : 1);
