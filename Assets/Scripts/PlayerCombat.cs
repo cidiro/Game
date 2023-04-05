@@ -11,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Skill skill1;
     [SerializeField] private Skill skill2;
     [SerializeField] private Skill skill3;
+    [SerializeField] private Skill dash;
     private InputsPlayer input;
 
     private void Start()
@@ -30,19 +31,23 @@ public class PlayerCombat : MonoBehaviour
             input.Movement.Attack.Enable();
             input.Movement.Attack2.Enable(); //Activas los ataques de el player1
             input.Movement.Attack3.Enable();
+            input.Movement.Dash.Enable();
 
             input.Movement.Attack.performed += useSkill1;
             input.Movement.Attack2.performed += useSkill2; //Subscribes las funciones use skill a cada input, por lo que si se pulsa la tecla vinculada a Attack
             input.Movement.Attack3.performed += useSkill3; //se llamara a useSkill1, Attack2 llamará a useSkill2, etc...
+            input.Movement.Dash.performed += useDash;
         }else{
             Debug.Log("Suscrito a los ataquesp2"+gameObject.name);
             input.MovementP2.Attack.Enable();
             input.MovementP2.Attack2.Enable();
             input.MovementP2.Attack3.Enable();
+            input.MovementP2.Dash.Enable();
 
             input.MovementP2.Attack.performed += useSkill1;
             input.MovementP2.Attack2.performed += useSkill2;
             input.MovementP2.Attack3.performed += useSkill3;
+            input.MovementP2.Dash.performed += useDash;
         }
 
     }
@@ -55,5 +60,8 @@ public class PlayerCombat : MonoBehaviour
     }
     private void useSkill3(InputAction.CallbackContext context){
         skill3.UseSkill();
+    }
+    private void useDash(InputAction.CallbackContext context){
+        dash.UseSkill();
     }
 }

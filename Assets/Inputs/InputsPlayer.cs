@@ -71,6 +71,15 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""4df6e8ba-6a5c-4371-b65e-ab5b7aca2000"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                     ""action"": ""Attack3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94da5014-d969-42fd-9feb-d358f4f44df7"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -219,6 +239,15 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                     ""name"": ""Attack3"",
                     ""type"": ""Button"",
                     ""id"": ""ab6083f4-5d78-4580-a563-0957a750eb50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""7150dc71-656c-4f04-972c-32f1dc63cb7d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -324,6 +353,17 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                     ""action"": ""Attack3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22f7d1b7-0783-4010-bf9c-272599c10e5d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -337,6 +377,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         m_Movement_Attack = m_Movement.FindAction("Attack", throwIfNotFound: true);
         m_Movement_Attack2 = m_Movement.FindAction("Attack2", throwIfNotFound: true);
         m_Movement_Attack3 = m_Movement.FindAction("Attack3", throwIfNotFound: true);
+        m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
         // MovementP2
         m_MovementP2 = asset.FindActionMap("MovementP2", throwIfNotFound: true);
         m_MovementP2_Move = m_MovementP2.FindAction("Move", throwIfNotFound: true);
@@ -344,6 +385,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         m_MovementP2_Attack = m_MovementP2.FindAction("Attack", throwIfNotFound: true);
         m_MovementP2_Attack2 = m_MovementP2.FindAction("Attack2", throwIfNotFound: true);
         m_MovementP2_Attack3 = m_MovementP2.FindAction("Attack3", throwIfNotFound: true);
+        m_MovementP2_Dash = m_MovementP2.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -410,6 +452,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Attack;
     private readonly InputAction m_Movement_Attack2;
     private readonly InputAction m_Movement_Attack3;
+    private readonly InputAction m_Movement_Dash;
     public struct MovementActions
     {
         private @InputsPlayer m_Wrapper;
@@ -419,6 +462,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Movement_Attack;
         public InputAction @Attack2 => m_Wrapper.m_Movement_Attack2;
         public InputAction @Attack3 => m_Wrapper.m_Movement_Attack3;
+        public InputAction @Dash => m_Wrapper.m_Movement_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -443,6 +487,9 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
             @Attack3.started += instance.OnAttack3;
             @Attack3.performed += instance.OnAttack3;
             @Attack3.canceled += instance.OnAttack3;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -462,6 +509,9 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
             @Attack3.started -= instance.OnAttack3;
             @Attack3.performed -= instance.OnAttack3;
             @Attack3.canceled -= instance.OnAttack3;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -488,6 +538,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_MovementP2_Attack;
     private readonly InputAction m_MovementP2_Attack2;
     private readonly InputAction m_MovementP2_Attack3;
+    private readonly InputAction m_MovementP2_Dash;
     public struct MovementP2Actions
     {
         private @InputsPlayer m_Wrapper;
@@ -497,6 +548,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_MovementP2_Attack;
         public InputAction @Attack2 => m_Wrapper.m_MovementP2_Attack2;
         public InputAction @Attack3 => m_Wrapper.m_MovementP2_Attack3;
+        public InputAction @Dash => m_Wrapper.m_MovementP2_Dash;
         public InputActionMap Get() { return m_Wrapper.m_MovementP2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -521,6 +573,9 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
             @Attack3.started += instance.OnAttack3;
             @Attack3.performed += instance.OnAttack3;
             @Attack3.canceled += instance.OnAttack3;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(IMovementP2Actions instance)
@@ -540,6 +595,9 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
             @Attack3.started -= instance.OnAttack3;
             @Attack3.performed -= instance.OnAttack3;
             @Attack3.canceled -= instance.OnAttack3;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(IMovementP2Actions instance)
@@ -564,6 +622,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnAttack2(InputAction.CallbackContext context);
         void OnAttack3(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IMovementP2Actions
     {
@@ -572,5 +631,6 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnAttack2(InputAction.CallbackContext context);
         void OnAttack3(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }

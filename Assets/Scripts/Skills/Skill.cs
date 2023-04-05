@@ -12,6 +12,7 @@ public abstract class Skill : MonoBehaviour
     protected SpriteRenderer sprite;
     protected Collider2D playerCollider;
     protected float nextUseTime;
+    //protected Rigidbody2D rb;
 
     protected void Start()
     {
@@ -19,6 +20,12 @@ public abstract class Skill : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         playerCollider = player.GetComponent<Collider2D>();
+        /*rb = player.GetComponent<Rigidbody2D>();
+        if(rb == null){
+            Debug.Log("null en skill");
+        }else{
+            Debug.Log("not null en skill");
+        }*/
     }
 
     public abstract void UseSkill();

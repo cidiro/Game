@@ -29,9 +29,56 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4520970995693938642}
+  - {fileID: 3600687459713588794}
   m_Father: {fileID: 4520970995110876731}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693562913785470892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3600687459713588794}
+  - component: {fileID: 8339041735649615959}
+  m_Layer: 0
+  m_Name: Dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3600687459713588794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693562913785470892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5842075845008881779}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8339041735649615959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693562913785470892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bb638d2f0213a40acd6b75c11af771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4520970995110876677}
+  cooldown: 2
 --- !u!1 &4520970994712783052
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +574,7 @@ MonoBehaviour:
   skill1: {fileID: 24767876956922928}
   skill2: {fileID: 24767876956922928}
   skill3: {fileID: 24767876956922928}
+  dash: {fileID: 8339041735649615959}
 --- !u!1 &4520970995693938655
 GameObject:
   m_ObjectHideFlags: 0

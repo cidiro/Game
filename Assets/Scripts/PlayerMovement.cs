@@ -61,7 +61,6 @@ public class PlayerMovement: MonoBehaviour
         }
     }
 
-
     private void UpdateAnimationState(float dirX)
     {
         MovementState state;
@@ -93,6 +92,16 @@ public class PlayerMovement: MonoBehaviour
         anim.SetInteger("state", (int)state);
     }
 
+    public float getInputX(){
+        if(idPlayer!=0){
+            if(idPlayer==1){
+                return inputsPlayer.Movement.Move.ReadValue<Vector2>().x;
+            }else{
+                return inputsPlayer.MovementP2.Move.ReadValue<Vector2>().x;
+            }
+        }
+        return 0f;
+    }
     /*private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
