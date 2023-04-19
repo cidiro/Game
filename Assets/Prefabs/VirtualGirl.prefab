@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1621313675470066407}
-  cooldown: 2
+  cooldown: 1
   attackDamage: 20
   attackRange: 1
   attackPoint: {fileID: 1621313675717123642}
