@@ -8907,7 +8907,7 @@ GameObject:
   - component: {fileID: 1577212432}
   - component: {fileID: 1577212431}
   m_Layer: 0
-  m_Name: BackGroundMusic
+  m_Name: BGmusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8923,7 +8923,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d227190cd67e95b4c9250cdf23dae34d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c7539e82f49a8554cae4b061c0ff1227, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.569
   m_Pitch: 1

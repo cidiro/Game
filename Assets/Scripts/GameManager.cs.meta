@@ -3,7 +3,12 @@ guid: e0e15fb0c6c98b44aa8e5214da0c0733
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - menuMusic: {fileID: 8300000, guid: f7c94b00546f2484ea827051a05081a4, type: 3}
+  - figthMusic: {instanceID: 0}
+  - endingMusic: {instanceID: 0}
+  - selectedCorrectly: {instanceID: 0}
+  - notAbleToSelect: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
