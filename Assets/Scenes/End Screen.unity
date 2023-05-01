@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 5798846}
   - component: {fileID: 5798845}
   m_Layer: 5
-  m_Name: Virtual Guy Image
+  m_Name: Winner Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -117, y: -31}
+  m_AnchoredPosition: {x: -117, y: -10.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5798845
@@ -744,7 +744,6 @@ GameObject:
   - component: {fileID: 877688548}
   - component: {fileID: 877688547}
   - component: {fileID: 877688546}
-  - component: {fileID: 877688549}
   m_Layer: 5
   m_Name: Quit Game Button
   m_TagString: Untagged
@@ -817,7 +816,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 877688549}
+      - m_Target: {fileID: 968832255}
         m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -867,20 +866,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877688544}
   m_CullTransparentMesh: 1
---- !u!114 &877688549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877688544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Image: {fileID: 5798845}
-  player2Image: {fileID: 923335886}
 --- !u!1 &923335884
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,7 +878,7 @@ GameObject:
   - component: {fileID: 923335887}
   - component: {fileID: 923335886}
   m_Layer: 5
-  m_Name: Virtual Girl Image
+  m_Name: Looser Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107, y: -30}
+  m_AnchoredPosition: {x: 107, y: -27}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923335886
@@ -932,7 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9411765}
+  m_Color: {r: 0.31132078, g: 0.30368462, b: 0.30368462, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1036,6 +1021,7 @@ GameObject:
   - component: {fileID: 968832252}
   - component: {fileID: 968832254}
   - component: {fileID: 968832253}
+  - component: {fileID: 968832255}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1106,6 +1092,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968832251}
   m_CullTransparentMesh: 1
+--- !u!114 &968832255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968832251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinnerImage: {fileID: 5798843}
+  LooserImage: {fileID: 923335884}
 --- !u!1 &1824109495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1202,6 @@ GameObject:
   - component: {fileID: 1912865089}
   - component: {fileID: 1912865088}
   - component: {fileID: 1912865087}
-  - component: {fileID: 1912865090}
   m_Layer: 5
   m_Name: Play Again Button
   m_TagString: Untagged
@@ -1275,7 +1274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1912865090}
+      - m_Target: {fileID: 968832255}
         m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -1325,20 +1324,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912865085}
   m_CullTransparentMesh: 1
---- !u!114 &1912865090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912865085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ac267d68dd0664ab00452dbc64e213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Image: {fileID: 5798845}
-  player2Image: {fileID: 923335886}
 --- !u!1 &2012698112
 GameObject:
   m_ObjectHideFlags: 0

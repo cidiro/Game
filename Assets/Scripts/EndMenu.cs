@@ -7,20 +7,14 @@ using UnityEngine.UI;
 
 public class EndMenu : MonoBehaviour
 {
-    [SerializeField] private Image player1Image;
-    [SerializeField] private Image player2Image;
+    [SerializeField] private GameObject WinnerImage;  //Refferences to both GameObjects inside of the Panel gameObject in the end sceene. We reference them 
+    [SerializeField] private GameObject LooserImage;  //so we can change the image of each one from here.
     
     private void Start()
     {
-        switch (GameManager.Winner)
-        {
-            case 1:
-                player2Image.color = new Color(1, 1, 1, 0.2f);
-                break;
-            case 2:
-                player1Image.color = new Color(1, 1, 1, 0.2f);
-                break;
-        }
+        WinnerImage.GetComponent<Image>().sprite = GameManager.GetWinnerSprite();
+
+        LooserImage.GetComponent<Image>().sprite = GameManager.GetLooserSprite();
     }
 
     public void RestartGame()

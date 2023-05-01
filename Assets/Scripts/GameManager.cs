@@ -69,4 +69,21 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public static Sprite GetWinnerSprite(){
+        if(Winner == 1){
+            return player1.GetComponent<SpriteRenderer>().sprite; //This returns the most recent sprite of the player, so its kind of random, if we want the 
+                                                                  //winner/looser sprites to be something specific, like for example them mid jump, ill change this
+                                                                  //to get the sprite from the animator, but i think with this is ok.
+        }
+        return player2.GetComponent<SpriteRenderer>().sprite;
+    }
+
+    public static Sprite GetLooserSprite(){
+        if(Winner == 1){
+            return player2.GetComponent<SpriteRenderer>().sprite;
+        }
+        return player1.GetComponent<SpriteRenderer>().sprite;
+
+    }
 }
