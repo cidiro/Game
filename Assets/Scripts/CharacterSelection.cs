@@ -19,24 +19,6 @@ public class CharacterSelection : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
     }
     public void addCharacter(GameObject character){
-        /*if(!player1Set){
-            player1=Instantiate(character);
-            player1.name=character.name;
-            player1.GetComponent<Player>().setID(1);
-            player1.GetComponent<PlayerMovement>().EnableControlls();
-            DontDestroyOnLoad(player1);
-            player1Set=true;
-            return;
-        }
-        if(character.name!=player1.name){
-            player2=Instantiate(character);
-            player2.name=character.name;
-            player2.GetComponent<Player>().setID(2);
-            player2.GetComponent<PlayerMovement>().EnableControlls();
-            DontDestroyOnLoad(player2);
-            GameManager.addPlayers(player1,player2);
-            StartFight();
-        }*/
         GameManager.addPlayer(character);
         
     }

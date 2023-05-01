@@ -5,11 +5,18 @@ namespace Skills
     public class Swing : Attack
     {
         private bool swingState;
-        private float localX, localY;
+
+        //X and Y from the center of the swing attack, these are relative to the player position.
+        private float localX, localY; 
         
+        //Reference to the SpriteRenderer of the player that performed the swing.
         private SpriteRenderer playerSprite;
         private float lastUse=0;
+
+        //Sound to be played when the swing is done.
         [SerializeField] private AudioSource swingDone;
+
+        //Sound to be played when a swing connects.
         [SerializeField] private AudioSource swingHit;
         new private void Start()
         {
@@ -21,6 +28,10 @@ namespace Skills
             localY = transform.localPosition.y;
         }
 
+
+        //This will check if which way we are looking, and in order of where we look it will change the attacks position, this because
+        //if we are looking to the left we want to attack to be to the left of the player, so -localX, or if we are looking to the right
+        //we want the attack to be at the right side of the player, so +localX
         private void Update()
         {
             if (playerSprite.flipX)
@@ -37,6 +48,7 @@ namespace Skills
 
         public override void UseSkill()
         {
+            //Check if enough time has went by since the last time we used the swing
             if (Time.time-lastUse >= cooldown)
             {
                 lastUse=Time.time;
@@ -48,9 +60,11 @@ namespace Skills
                     animator.SetTrigger("SwingB");
 
                 swingState = !swingState;
-                //Debug.Log(LayerMask.LayerToName(enemyLayers)); btw, asi se ve el nombre de una layer
+
+                //In hitEnemies, store the Colliders of all the GameObjects that are in the range of the attack.
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayers);
-                Debug.Log(hitEnemies.Length);
+
+                //For each Collider check if it belongs to a player, and if it does aply damage to that player.
                 foreach (Collider2D enemy in hitEnemies)
                 {
                     Debug.Log("collider");
