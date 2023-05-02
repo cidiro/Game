@@ -526,6 +526,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
     - target: {fileID: 23963383967469638, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469638, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
@@ -565,6 +569,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1289279303586790569, guid: 384490207025b2340b7ad88aa354ea7f, type: 3}
+    - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_text
+      value: Croak (o lo que hagan las ranas)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340054046242570868, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: infoToShow
+      value: Croak (o como suenen las ranas)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
 --- !u!224 &1424006861 stripped
@@ -1098,6 +1110,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1621313675470066407, guid: c0aa045bd57a7ae4c9a78c6b4d8cb915, type: 3}
+    - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_text
+      value: I dont want to play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340054046242570868, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: infoToShow
+      value: I dont want to play
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
 --- !u!1001 &23963384440718315
@@ -1107,6 +1127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2039375722}
     m_Modifications:
+    - target: {fileID: 9054014187185972, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6
+      objectReference: {fileID: 0}
     - target: {fileID: 23963383967469632, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1231,5 +1255,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1841134853}
+    - target: {fileID: 448338463079362727, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 448338463079362727, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_fontSize
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 448338463079362727, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_text
+      value: No me elijas porfavor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779467056443753493, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340054046242570868, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: infoToShow
+      value: No me elijas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
