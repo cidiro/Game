@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int playerID;
     [SerializeField] private int maxHealth = 100;
-    [SerializeField] private TextMeshProUGUI textMesh;
     [SerializeField] private AudioSource deathSound;
     
     private int currentHealth;
@@ -27,9 +26,6 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         animator.SetTrigger("hit");
-
-        //Update the text that shows the player´s HP
-        textMesh.text = currentHealth + "%";
         
         if (currentHealth <= 0)
             Death();
@@ -79,6 +75,14 @@ public class Player : MonoBehaviour
 
     public void RecoverHP(){
         currentHealth = maxHealth; 
+    }
+
+    public int GetCurrentHealth(){
+        return currentHealth;
+    }
+
+    public int GetMaxHealth(){
+        return maxHealth;
     }
 
 }

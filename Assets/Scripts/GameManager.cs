@@ -107,4 +107,12 @@ public class GameManager : MonoBehaviour
         return player1.GetComponent<SpriteRenderer>().sprite;
 
     }
+
+    public static GameObject getPlayer1(){
+        return player1;
+    }
+
+    public static GameObject getPlayer2(){
+        return player2;
+    }
 }
