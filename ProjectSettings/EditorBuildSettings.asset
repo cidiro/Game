@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterSelection.unity
     guid: aa13193e901d56146bc526ca3c372c26
   - enabled: 1
+    path: Assets/Scenes/WorldSelection.unity
+    guid: 3eda49c11a954434cbd1b38925f1fe8e
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/World2.unity
+    guid: 94bd7807ea76f70468550b390b7ea7fb
   - enabled: 1
     path: Assets/Scenes/End Screen.unity
     guid: b41b8f98aabc37d4e982af97d5482040

@@ -14,10 +14,14 @@ public class GameManager : MonoBehaviour
     //values related to the collider and RigidBody that are modified.
     private static GameObject player1=null, player2=null, copyp1, copyp2;
     
+    //The name of the sceene which has the world the players are going to fight in
+    private static string worldName;
+
     //To start a game we load the next sceene and place the charatcers in their "spawns", thats what the transforms are for.
     public static void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(worldName);
         player1.transform.position=new Vector3(-3.33f, 1, 0);
         player2.transform.position=new Vector3(13.33f, 1, 0);
     }
@@ -49,7 +53,8 @@ public class GameManager : MonoBehaviour
             player2.GetComponent<PlayerMovement>().EnableControlls();
             DontDestroyOnLoad(player2);
             copyp2=character;
-            StartGame();
+            //StartGame();
+            NextScene();
         }
     }
 
@@ -77,15 +82,27 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(player2);        
 
         //Going back to the fight sceene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        SceneManager.LoadScene(worldName);
         player1.transform.position=new Vector3(-3.33f, 1, 0);
         player2.transform.position=new Vector3(13.33f, 1, 0);       
 
     }
     
+    public static void ChangeCharacters(){
+        player1.GetComponent<Player>().disableControls();
+        Destroy(player1);
+        player2.GetComponent<Player>().disableControls();
+        Destroy(player2);
+        Destroy(copyp1);
+        Destroy(copyp2);
+
+        SceneManager.LoadScene("CharacterSelection");
+    }
     public static void EndGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("End Screen");
     }
 
     //Method that returns the sprite of the winner, based on the value of Winner (int) 
@@ -106,6 +123,19 @@ public class GameManager : MonoBehaviour
         }
         return player1.GetComponent<SpriteRenderer>().sprite;
 
+    }
+
+    public static void SetWorld(string worldName_){
+        worldName = worldName_; 
+        StartGame();
+    }
+
+    public static void GoToScene(string sceneName){
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public static void NextScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public static GameObject getPlayer1(){
