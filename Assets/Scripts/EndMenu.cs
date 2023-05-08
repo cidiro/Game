@@ -25,6 +25,10 @@ public class EndMenu : MonoBehaviour
         GameManager.Replay();
     }
     
+    public void ChangeCharacters(){
+        GameManager.ChangeCharacters();
+    }
+
     public void QuitGame()
     {
         Application.Quit();

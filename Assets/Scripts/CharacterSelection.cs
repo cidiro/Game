@@ -11,12 +11,12 @@ public class CharacterSelection : MonoBehaviour
     private static CharacterSelection instance;
 
     private void Start() {
-        if(instance!=null){
+        /*if(instance!=null){
             Destroy(this.gameObject);
             return;
         }
         instance=this;
-        GameObject.DontDestroyOnLoad(this.gameObject);
+        GameObject.DontDestroyOnLoad(this.gameObject);*/
     }
     public void addCharacter(GameObject character){
         GameManager.addPlayer(character);
