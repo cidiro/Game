@@ -6,7 +6,6 @@ public class StartGame : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            //GameManager.StartGame();
             GameManager.NextScene();
         }
     }

@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     //To start a game we load the next sceene and place the charatcers in their "spawns", thats what the transforms are for.
     public static void StartGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene(worldName);
         player1.transform.position=new Vector3(-3.33f, 1, 0);
         player2.transform.position=new Vector3(13.33f, 1, 0);
@@ -89,7 +88,10 @@ public class GameManager : MonoBehaviour
 
     }
     
+    //Method used when the player selects to change characters at the end of a fight, this means, going back to the character selection scene,
+    //choosing the characters, choosing the world/map, and the fighting again. 
     public static void ChangeCharacters(){
+        //We first delete the recent characters, because we want to select new ones
         player1.GetComponent<Player>().disableControls();
         Destroy(player1);
         player2.GetComponent<Player>().disableControls();
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
         Destroy(copyp1);
         Destroy(copyp2);
 
+        //Go to the character selection scene
         SceneManager.LoadScene("CharacterSelection");
     }
     public static void EndGame()
@@ -125,15 +128,22 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //Params: worldName-> The name of the scene in which the characters will fight
+    //Method called when selecting a world in the World Selection scene, in this we use the world name we recieve 
+    //to set the world name of the game manager, and then, because thats the only thing we have to do in the world
+    //selection scene, we start the game (go to the selected world so players can fight)
     public static void SetWorld(string worldName_){
         worldName = worldName_; 
         StartGame();
     }
 
+    //Params: sceneName-> The name of the scene we are switching to
+    //Method used when wanting to switch to a specific scene
     public static void GoToScene(string sceneName){
         SceneManager.LoadScene(sceneName);
     }
 
+    //Method used when wanting to switch to the next scene, acording to the indexes of the scenes in the build settings.
     public static void NextScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
