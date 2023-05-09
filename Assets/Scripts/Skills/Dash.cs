@@ -46,6 +46,11 @@ namespace Skills
             //We toggle the dashing back to false, since we have finished dashing.
             player.GetComponent<PlayerMovement>().toggleDashing();
         }
+
+        public override float getCoolDown()
+        {
+            return (Time.time-lastUse) / cooldown;
+        }
     }
 }
 

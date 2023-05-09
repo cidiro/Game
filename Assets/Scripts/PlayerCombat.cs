@@ -101,4 +101,16 @@ public class PlayerCombat : MonoBehaviour
             input.MovementP2.Dash.performed -= useDash;
         }
     }
+
+    public Skill getBasicAttack(){
+        return skill1;
+    }
+
+    public Skill getSpecialAttack(){
+        return skill2;
+    }
+
+    public Skill getDash(){
+        return dash;
+    }
 }

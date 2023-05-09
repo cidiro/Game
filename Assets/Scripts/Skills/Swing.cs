@@ -75,5 +75,10 @@ namespace Skills
                 }
             }
         }
+
+        public override float getCoolDown()
+        {
+            return (Time.time-lastUse) / cooldown;
+        }
     }
 }
