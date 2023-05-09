@@ -25,5 +25,9 @@ public abstract class Skill : MonoBehaviour
     }
 
     public abstract void UseSkill();
+
+    //This method, in all its implementations, will return the percentage of the cooldown completed / 100, so, if
+    //the full time of the cooldown has went by, it will return 1 or more, if we are half way through the cooldown 
+    //it will return 0.5, and so on. 
     public abstract float getCoolDown();
 }
