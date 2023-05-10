@@ -561,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4520970995110876677}
   cooldown: 1
-  attackDamage: 20
+  attackDamage: 15
   attackRange: 1
   attackPoint: {fileID: 4520970995693938642}
   enemyLayers:
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4520970995110876677}
   cooldown: 5
-  attackDamage: 30
+  attackDamage: 25
   attackRange: 10
   attackPoint: {fileID: 0}
   enemyLayers:

@@ -21,8 +21,19 @@ public class GameManager : MonoBehaviour
     public static void StartGame()
     {
         SceneManager.LoadScene(worldName);
-        player1.transform.position=new Vector3(-3.33f, 1, 0);
-        player2.transform.position=new Vector3(13.33f, 1, 0);
+
+        if(worldName == "SampleScene"){ //Las coordenadas de spawn en el mundo 1
+            player1.transform.position = new Vector3(-3.33f, 1, 0);
+            player2.transform.position = new Vector3(13.33f, 1, 0);
+        }else{//Las coordenadas de spawn en el mundo 2
+            player1.transform.position = new Vector3(0.33f, 1, 0);
+            player2.transform.position = new Vector3(1.33f, 1, 0);
+        }
+        //Al entrar a partida descongelamos los jugadores para que se puedan mover
+        player1.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePosition;
+        player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        player2.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePosition;
+        player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public static void addPlayers(GameObject p1, GameObject p2){
@@ -41,6 +52,8 @@ public class GameManager : MonoBehaviour
             player1.name=character.name;
             player1.GetComponent<Player>().setID(1);
             player1.GetComponent<PlayerMovement>().EnableControlls();
+            player1.transform.position=new Vector3(-3.33f, 1, 0);
+            player1.GetComponent<Rigidbody2D>().constraints=RigidbodyConstraints2D.FreezePosition;
             DontDestroyOnLoad(player1);
             copyp1=character;
             return;
@@ -50,6 +63,8 @@ public class GameManager : MonoBehaviour
             player2.name=character.name;
             player2.GetComponent<Player>().setID(2);
             player2.GetComponent<PlayerMovement>().EnableControlls();
+            player2.transform.position=new Vector3(13.33f, 1, 0);  
+            player2.GetComponent<Rigidbody2D>().constraints=RigidbodyConstraints2D.FreezePosition;
             DontDestroyOnLoad(player2);
             copyp2=character;
             //StartGame();
@@ -102,6 +117,7 @@ public class GameManager : MonoBehaviour
         //Go to the character selection scene
         SceneManager.LoadScene("CharacterSelection");
     }
+    
     public static void EndGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -146,6 +162,14 @@ public class GameManager : MonoBehaviour
     //Method used when wanting to switch to the next scene, acording to the indexes of the scenes in the build settings.
     public static void NextScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public static void ExitSceneTransition(){
+        GameObject transition = GameObject.Find("Transition");
+    }
+
+    public static void EnterSceneTransition(){
+
     }
 
     public static GameObject getPlayer1(){

@@ -1,0 +1,27 @@
+Virtual guy-> El tipico default, equilibrado en todo
+    Basic attack: Mismo todos(Dmg:15 , Cooldown:1)
+    Special attack: El ataque giratorio que ya está, lanza el enemigo hacia arriba(Dmg:25 , Cooldown:5)
+    Dash:(Cooldown:2)
+    Velocidad:7
+    Max health:100
+
+Virtual girl-> Mas tosco que el virtual guy, tipico lento pero que si te da adios. Se pueden intercambiar para que este sea el default
+    Basic attack: Mismo todos(Dmg:20 , Cooldown:2)
+    Special attack: (Dmg:45 , Cooldown:8)
+    Dash:(Cooldown:2)
+    Velocidad:5
+    Max health:125
+
+Rana-> Mayor salto ó menos gravedad y dash con menos cooldown 
+    Basic attack: Mismo todos(Dmg:15 , Cooldown:1)
+    Special attack: lenguetazo de 1 solo lado, o los 2, mirar eso, que ralentize al enemigo? (Dmg:25 , Cooldown:5)
+    Dash: (Cooldown:1.5)
+    Velocidad:7
+    Max health:100
+
+Chamán-> Mas agil= mas rápido
+    Basic attack: Mismo todos(Dmg:10 , Cooldown:0.5)
+    Special attack: Lanzar una lanza en la direccion a la que miras(Dmg:20 , Cooldown:4)
+    Dash:(Cooldown:2)
+    Velocidad:8
+    Max health:90

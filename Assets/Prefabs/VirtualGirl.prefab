@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
-  maxHealth: 100
+  maxHealth: 125
   deathSound: {fileID: 920616576}
 --- !u!114 &920616564
 MonoBehaviour:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc30d962cfff6a47977d6f8cfae0e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7
+  movementSpeed: 5
   jumpSoundEffect: {fileID: 0}
 --- !u!114 &7980900629219566169
 MonoBehaviour:
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1621313675470066407}
-  cooldown: 1
+  cooldown: 2
   attackDamage: 20
   attackRange: 1
   attackPoint: {fileID: 1621313675717123642}
@@ -938,8 +938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1621313675470066407}
-  cooldown: 5
-  attackDamage: 30
+  cooldown: 8
+  attackDamage: 45
   attackRange: 10
   attackPoint: {fileID: 0}
   enemyLayers:

@@ -377,7 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1289279303586790569}
   cooldown: 5
-  attackDamage: 30
+  attackDamage: 25
   attackRange: 10
   attackPoint: {fileID: 0}
   enemyLayers:
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1289279303586790569}
-  cooldown: 2
+  cooldown: 1.5
 --- !u!1 &5457722816258549957
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1289279303586790569}
   cooldown: 1
-  attackDamage: 20
+  attackDamage: 15
   attackRange: 1
   attackPoint: {fileID: 3553450483443885184}
   enemyLayers:

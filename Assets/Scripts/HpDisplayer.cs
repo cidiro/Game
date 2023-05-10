@@ -29,9 +29,9 @@ public class HpDisplayer : MonoBehaviour
     {
         int hp=player.GetComponent<Player>().GetCurrentHealth();
         if(hp <= 0){
-            textDisplay.GetComponent<TextMeshProUGUI>().text = "0%";
+            textDisplay.GetComponent<TextMeshProUGUI>().text = "0";
         }else{
-            textDisplay.GetComponent<TextMeshProUGUI>().text = hp + "%";
+            textDisplay.GetComponent<TextMeshProUGUI>().text = hp + "";
         }
         
     }
