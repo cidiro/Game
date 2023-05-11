@@ -8,9 +8,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [SerializeField] private Skill skill1;
-    [SerializeField] private Skill skill2;
-    [SerializeField] private Skill skill3;
+    [SerializeField] private Skill basicAttack;
+    [SerializeField] private Skill specialAttack;
     [SerializeField] private Skill dash;
     private InputsPlayer input;
 
@@ -35,26 +34,22 @@ public class PlayerCombat : MonoBehaviour
             //First enable all the inputs we want to use.
             input.Movement.Attack.Enable();
             input.Movement.Attack2.Enable(); //Activas los ataques de el player1
-            input.Movement.Attack3.Enable();
             input.Movement.Dash.Enable();
 
             //Then subscribe to that inputs, by subscribing to and input, what happens is that, in this case, when the input is performed
             //it will call the method we associated to it. For example in this case, when the Attach3 input of the player1 is used, it will
             //call the useSkill3 method.
-            input.Movement.Attack.performed += useSkill1;
-            input.Movement.Attack2.performed += useSkill2; //Subscribes las funciones use skill a cada input, por lo que si se pulsa la tecla vinculada a Attack
-            input.Movement.Attack3.performed += useSkill3; //se llamara a useSkill1, Attack2 llamará a useSkill2, etc...
-            input.Movement.Dash.performed += useDash;
+            input.Movement.Attack.performed += useBasicAttack;
+            input.Movement.Attack2.performed += useSpecialAttack; //Subscribes las funciones use skill a cada input, por lo que si se pulsa la tecla vinculada a Attack
+            input.Movement.Dash.performed += useDash;             //se llamara a useSkill1, Attack2 llamará a useSkill2, etc...
         }else{
             Debug.Log("Suscrito a los ataquesp2"+gameObject.name);
             input.MovementP2.Attack.Enable();
             input.MovementP2.Attack2.Enable();
-            input.MovementP2.Attack3.Enable();
             input.MovementP2.Dash.Enable();
 
-            input.MovementP2.Attack.performed += useSkill1;
-            input.MovementP2.Attack2.performed += useSkill2;
-            input.MovementP2.Attack3.performed += useSkill3;
+            input.MovementP2.Attack.performed += useBasicAttack;
+            input.MovementP2.Attack2.performed += useSpecialAttack;
             input.MovementP2.Dash.performed += useDash;
         }
 
@@ -63,14 +58,11 @@ public class PlayerCombat : MonoBehaviour
     //This are the useSkill methods we see above, when subscribing to an input this are needed, they dont need to be allways called useSkill,
     //but they are needed because we need the CallbackContext for it to work, even if we dont use it. This methods call the actual skills and 
     //dash of the player.
-    private void useSkill1(InputAction.CallbackContext context){ //El callback context solo esta porque hace falta para poder subscribir la funcion, pero no
-        skill1.UseSkill();                                       //hacemos nada con el a parte de declararlo como entrada
+    private void useBasicAttack(InputAction.CallbackContext context){ //El callback context solo esta porque hace falta para poder subscribir la funcion, pero no
+        basicAttack.UseSkill();                                       //hacemos nada con el a parte de declararlo como entrada
     }
-    private void useSkill2(InputAction.CallbackContext context){
-        skill2.UseSkill();
-    }
-    private void useSkill3(InputAction.CallbackContext context){
-        skill3.UseSkill();
+    private void useSpecialAttack(InputAction.CallbackContext context){
+        specialAttack.UseSkill();
     }
     private void useDash(InputAction.CallbackContext context){
         dash.UseSkill();
@@ -82,32 +74,28 @@ public class PlayerCombat : MonoBehaviour
         if(GetComponent<Player>().getID() == 1){
             input.Movement.Attack.Disable();
             input.Movement.Attack2.Disable(); 
-            input.Movement.Attack3.Disable();
             input.Movement.Dash.Disable();
 
-            input.Movement.Attack.performed -= useSkill1;
-            input.Movement.Attack2.performed -= useSkill2; 
-            input.Movement.Attack3.performed -= useSkill3; 
+            input.Movement.Attack.performed -= useBasicAttack;
+            input.Movement.Attack2.performed -= useSpecialAttack; 
             input.Movement.Dash.performed -= useDash;
         }else{
             input.MovementP2.Attack.Disable();
             input.MovementP2.Attack2.Disable();
-            input.MovementP2.Attack3.Disable();
             input.MovementP2.Dash.Disable();
 
-            input.MovementP2.Attack.performed -= useSkill1;
-            input.MovementP2.Attack2.performed -= useSkill2;
-            input.MovementP2.Attack3.performed -= useSkill3;
+            input.MovementP2.Attack.performed -= useBasicAttack;
+            input.MovementP2.Attack2.performed -= useSpecialAttack;
             input.MovementP2.Dash.performed -= useDash;
         }
     }
 
     public Skill getBasicAttack(){
-        return skill1;
+        return basicAttack;
     }
 
     public Skill getSpecialAttack(){
-        return skill2;
+        return specialAttack;
     }
 
     public Skill getDash(){

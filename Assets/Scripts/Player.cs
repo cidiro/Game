@@ -21,11 +21,6 @@ public class Player : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
     
-    private void Update() {
-        if(playerID==1){
-            Debug.Log(this.transform.position.x+" "+this.transform.position.y);
-        }
-    }
     //Params: damage-> The ammoun of health that has to be deducted from the player HP
     public void TakeDamage(int damage)
     {

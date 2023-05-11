@@ -10,6 +10,9 @@ public abstract class Skill : MonoBehaviour
 
     //Cooldown in order to use the skill again
     [SerializeField] protected float cooldown = 2f;
+    
+    //Last time the Skill was used
+    protected float lastUse=0;
 
     //Refferences to the animator, sprite and playerColider of the player that uses the skill.
     protected Animator animator;

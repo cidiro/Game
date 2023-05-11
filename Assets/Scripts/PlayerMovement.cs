@@ -136,6 +136,17 @@ public class PlayerMovement: MonoBehaviour
     public void toggleDashing(){
         dashing = (dashing==false); //This toggles the value of dashing, we could also use a if(dashin==true){dashing=false}... but this is more simple.
     }
+
+    public void Slow(float time){
+        movementSpeed-=2;
+        StartCoroutine(slowRecoverWait(time));
+    }
+
+    private IEnumerator slowRecoverWait(float time){ 
+        yield return new WaitForSeconds(time);
+        movementSpeed+=2;
+    }
+
     
     /*private bool IsGrounded()
     {

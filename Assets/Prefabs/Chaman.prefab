@@ -435,9 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b99ce8a195e8f49b00fc1ada21c95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill1: {fileID: 24767876956922928}
-  skill2: {fileID: 567840948982257984}
-  skill3: {fileID: 24767876956922928}
+  basicAttack: {fileID: 24767876956922928}
+  specialAttack: {fileID: 567840948982257984}
   dash: {fileID: 8339041735649615959}
 --- !u!1 &4520970995693938655
 GameObject:
@@ -809,7 +808,7 @@ MonoBehaviour:
   cooldown: 4
   attackDamage: 20
   attackRange: 10
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 7395273746332569305}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128

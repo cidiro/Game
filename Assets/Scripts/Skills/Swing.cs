@@ -5,13 +5,9 @@ namespace Skills
     public class Swing : Attack
     {
         private bool swingState;
-
-        //X and Y from the center of the swing attack, these are relative to the player position.
-        private float localX, localY; 
-        
+         
         //Reference to the SpriteRenderer of the player that performed the swing.
         private SpriteRenderer playerSprite;
-        private float lastUse=0;
 
         //Sound to be played when the swing is done.
         [SerializeField] private AudioSource swingDone;
@@ -26,6 +22,7 @@ namespace Skills
             playerSprite = player.GetComponent<SpriteRenderer>();
             localX = Mathf.Abs(transform.localPosition.x);
             localY = transform.localPosition.y;
+            Debug.Log(localX + "" + localY);
         }
 
 
@@ -67,7 +64,6 @@ namespace Skills
                 //For each Collider check if it belongs to a player, and if it does aply damage to that player.
                 foreach (Collider2D enemy in hitEnemies)
                 {
-                    Debug.Log("collider");
                     if (enemy != playerCollider){
                         swingHit.Play();
                         enemy.GetComponent<Player>().TakeDamage(attackDamage);

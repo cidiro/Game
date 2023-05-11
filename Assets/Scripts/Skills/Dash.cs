@@ -7,7 +7,6 @@ namespace Skills
     {       
         private SpriteRenderer playerSprite; 
         private Rigidbody2D rb;
-        private float lastUse=0;
 
         //Ambos playerSprite y rb son referencias al SpriteRenderes y RigidBody2d del player, asique en el start las seteamos.
         new private void Start(){

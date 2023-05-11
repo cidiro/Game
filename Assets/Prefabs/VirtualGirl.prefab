@@ -567,9 +567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b99ce8a195e8f49b00fc1ada21c95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill1: {fileID: 4666040649899808827}
-  skill2: {fileID: 7767580072739191284}
-  skill3: {fileID: 4666040649899808827}
+  basicAttack: {fileID: 4666040649899808827}
+  specialAttack: {fileID: 3738177579043263725}
   dash: {fileID: 1640136789012630963}
 --- !u!1 &1621313675717123643
 GameObject:
@@ -902,9 +901,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6389967363160878585}
-  - component: {fileID: 7767580072739191284}
+  - component: {fileID: 3738177579043263725}
+  - component: {fileID: 6622664480537276175}
   m_Layer: 0
-  m_Name: SpinningAttack
+  m_Name: Charge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -925,7 +925,7 @@ Transform:
   m_Father: {fileID: 618520418803554287}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7767580072739191284
+--- !u!114 &3738177579043263725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -934,17 +934,69 @@ MonoBehaviour:
   m_GameObject: {fileID: 2359751345540583183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b959addfc911345439c3c56bb0a76712, type: 3}
+  m_Script: {fileID: 11500000, guid: 69c0d20a55b3a81408307eabb9591a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1621313675470066407}
   cooldown: 8
   attackDamage: 45
-  attackRange: 10
+  attackRange: 0
   attackPoint: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+--- !u!212 &6622664480537276175
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359751345540583183}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2415844468412049816
 GameObject:
   m_ObjectHideFlags: 0
