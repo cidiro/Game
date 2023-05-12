@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack3",
-                    "type": "Button",
-                    "id": "b89d1a76-4178-4a6a-bbbd-ce11d15da389",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "4df6e8ba-6a5c-4371-b65e-ab5b7aca2000",
@@ -151,17 +142,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0ef8e48c-cc26-4d25-9aca-60fcc7a21fea",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "94da5014-d969-42fd-9feb-d358f4f44df7",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -208,15 +188,6 @@
                     "name": "Attack2",
                     "type": "Button",
                     "id": "65e2c7d1-31e0-475f-be5a-b81f7681949f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Attack3",
-                    "type": "Button",
-                    "id": "ab6083f4-5d78-4580-a563-0957a750eb50",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -318,17 +289,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ec8f4b96-1491-48c6-8650-8743ec8538e0",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

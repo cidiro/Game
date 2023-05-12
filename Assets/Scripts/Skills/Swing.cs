@@ -64,7 +64,7 @@ namespace Skills
                 //For each Collider check if it belongs to a player, and if it does aply damage to that player.
                 foreach (Collider2D enemy in hitEnemies)
                 {
-                    if (enemy != playerCollider){
+                    if (enemy != playerCollider && enemy.GetComponent<Player>() != null){
                         swingHit.Play();
                         enemy.GetComponent<Player>().TakeDamage(attackDamage);
                     }

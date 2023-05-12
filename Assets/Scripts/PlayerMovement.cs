@@ -17,6 +17,7 @@ public class PlayerMovement: MonoBehaviour
     private int idPlayer;
     private bool dashing = false;
     [SerializeField] private AudioSource jumpSoundEffect;
+    private int controllerID;
     //private Collider2D coll;
     //[SerializeField] private LayerMask jumpableGround;
 
@@ -147,7 +148,13 @@ public class PlayerMovement: MonoBehaviour
         movementSpeed+=2;
     }
 
-    
+    public void setControllerID(int id){
+        controllerID = id;
+    }
+
+    public int getControllerID(){
+        return controllerID;
+    }
     /*private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);

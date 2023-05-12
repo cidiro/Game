@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6910131356394583795}
   m_Layer: 7
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +383,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  slowDuration: 4
 --- !u!212 &4324255356678286515
 SpriteRenderer:
   m_ObjectHideFlags: 0

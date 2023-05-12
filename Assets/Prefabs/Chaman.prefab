@@ -30,10 +30,65 @@ Transform:
   m_Children:
   - {fileID: 4520970995693938642}
   - {fileID: 3600687459713588794}
-  - {fileID: 7395273746332569305}
+  - {fileID: 391381093333505091}
   m_Father: {fileID: 4520970995110876731}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &389336671658578889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391381093333505091}
+  - component: {fileID: 1423646752939512855}
+  m_Layer: 0
+  m_Name: SpikesThrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391381093333505091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389336671658578889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5842075845008881779}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423646752939512855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389336671658578889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9821c359df8301409bd85b1c9fb8545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4520970995110876677}
+  cooldown: 3.5
+  attackDamage: 20
+  attackRange: 0
+  attackPoint: {fileID: 391381093333505091}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  proyectilePrefab: {fileID: 4823624876000634822, guid: c4fe45a44a26a144fa5a68a95d61bb91, type: 3}
+  proyectileSpeed: 20
+  verticalPower: 2
 --- !u!1 &693562913785470892
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicAttack: {fileID: 24767876956922928}
-  specialAttack: {fileID: 567840948982257984}
+  specialAttack: {fileID: 1423646752939512855}
   dash: {fileID: 8339041735649615959}
 --- !u!1 &4520970995693938655
 GameObject:
@@ -760,55 +815,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &7457219121727460612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7395273746332569305}
-  - component: {fileID: 567840948982257984}
-  m_Layer: 0
-  m_Name: SpinningAttack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7395273746332569305
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457219121727460612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5842075845008881779}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &567840948982257984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457219121727460612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b959addfc911345439c3c56bb0a76712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 4520970995110876677}
-  cooldown: 4
-  attackDamage: 20
-  attackRange: 10
-  attackPoint: {fileID: 7395273746332569305}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 128
