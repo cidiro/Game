@@ -38,7 +38,7 @@ namespace Skills
                 //the center of the box, the vector made by the attackRange and 1 will define the half of the width and height of the box, and lastly 
                 //the enemyLayers indicates in which layer the box will check for hits.
                 Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.transform.position, new Vector2(attackRange, .75f), 0, enemyLayers);
-                
+                animator.SetTrigger("attack");
                 //Now we go through all the Colliders, and if a Collider belongs to a player, that player will take the damage corresponding to the attack.
                 foreach (Collider2D enemy in hitEnemies)
                 {

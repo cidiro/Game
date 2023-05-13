@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 5746781307658628042}
   - component: {fileID: 2827960099036897524}
   - component: {fileID: 4324255356678286515}
+  - component: {fileID: 3957466337898696923}
   m_Layer: 7
   m_Name: Lick
   m_TagString: Untagged
@@ -436,6 +437,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3957466337898696923
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518291124757306449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45d77549598a8804faa6973006b14d3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1919288582901392691
 GameObject:
   m_ObjectHideFlags: 0

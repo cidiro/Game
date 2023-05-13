@@ -35,7 +35,7 @@ namespace Skills{
         {
             if(Time.time - lastUse >= cooldown){
                 lastUse=Time.time;
-
+                animator.SetTrigger("lick");
                 Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.transform.position, new Vector2(attackRange,1), 0, enemyLayers);
                 foreach(Collider2D enemy in hitEnemies){
                     if(enemy!=playerCollider && enemy.GetComponent<Player>()!=null){

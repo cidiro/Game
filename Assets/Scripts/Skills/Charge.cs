@@ -19,6 +19,15 @@ namespace Skills{
         }
 
         private void Update() {
+
+            if (playerSprite.flipX)
+            {
+                sprite.flipX = true;
+            }
+            else
+            {
+                sprite.flipX = false;
+            }
             if(active){
                 //Check if something collides with the player, if thats the case do damage and set active to false, this because 
                 //we know that there will only be one enemy, so 1 hit at max mecause we dont want to hit the same player more than
@@ -46,6 +55,7 @@ namespace Skills{
                 }else{
                     rb.velocity = new Vector2(40f, rb.velocity.y);//quizas poner la y como 0 para que el dash sea full horizontal siempre
                 }
+                animator.SetBool("charge",true);
                 StartCoroutine(chargeWait(0.5f));
             }
         }
@@ -55,6 +65,7 @@ namespace Skills{
 
             //We toggle the dashing back to false, since we have finished dashing.
             active=false;
+            animator.SetBool("charge",false);
             player.GetComponent<PlayerMovement>().toggleDashing();
         }
 
