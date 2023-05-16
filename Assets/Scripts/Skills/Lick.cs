@@ -7,7 +7,7 @@ namespace Skills{
     {
         private SpriteRenderer playerSprite;
         [SerializeField] private float slowDuration = 4;
-        void Start()
+        new void Start()
         {
             base.Start();
             Debug.Log("Starting the Lick class...");

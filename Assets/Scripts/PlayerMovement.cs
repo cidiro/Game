@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PlayerMovement: MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class PlayerMovement: MonoBehaviour
     private int idPlayer;
     private bool dashing = false;
     [SerializeField] private AudioSource jumpSoundEffect;
-    private int controllerID;
+
+    private InputDeviceController deviceController;
+
     //private Collider2D coll;
     //[SerializeField] private LayerMask jumpableGround;
 
@@ -30,6 +33,8 @@ public class PlayerMovement: MonoBehaviour
         //coll = GetComponent<BoxCollider2D>();
         sprite=GetComponent<SpriteRenderer>();  
         anim=GetComponent<Animator>();
+        deviceController=GameObject.Find("InputDeviceManager").GetComponent<InputDeviceController>();
+        idPlayer=GetComponent<Player>().getID();
     }
 
     //When enabling the controls of a player, we want to first enable the desired Action Maps, in this case, if we are the player1 we want to enable the
@@ -42,10 +47,12 @@ public class PlayerMovement: MonoBehaviour
             Debug.Log(gameObject.name+"Subscrito a movement");
             inputsPlayer.Movement.Enable();
             inputsPlayer.Movement.Jump.performed += Jump;
+            inputsPlayer.Movement.Move.performed += Move;
         }else{
             Debug.Log(gameObject.name+"Subscrito a movement2");
             inputsPlayer.MovementP2.Enable();
             inputsPlayer.MovementP2.Jump.performed += Jump;
+            inputsPlayer.MovementP2.Move.performed += Move;
         }
     }
 
@@ -55,9 +62,11 @@ public class PlayerMovement: MonoBehaviour
         if(idPlayer==1){
             inputsPlayer.Movement.Disable();
             inputsPlayer.Movement.Jump.performed -= Jump;
+            inputsPlayer.Movement.Move.performed -= Move;
         }else{
             inputsPlayer.MovementP2.Disable();
             inputsPlayer.MovementP2.Jump.performed -= Jump;
+            inputsPlayer.MovementP2.Move.performed -= Move;
         }
     }
 
@@ -67,20 +76,63 @@ public class PlayerMovement: MonoBehaviour
     //the velovity is never 0, so the closes thing to ==0 is to use >-.1f and <.1f), if th velocity is 0 the player isnt in the air so we can jump,
     //if its not 0 it meand he is either jumping or falling, and in neither case we can perform a jump.
     private void Jump(InputAction.CallbackContext context){
-        if(rb.velocity.y>-.1f && rb.velocity.y<.1f){
-            //jumpSoundEffect.Play();
-            rb.velocity=new Vector2(rb.velocity.x, 14f);
+        Debug.Log(gameObject.name + " jumped");
+        if(context.control.device.deviceId == deviceController.getPlayerControllerId(idPlayer) || context.control.device is Keyboard){
+            if(rb.velocity.y>-.1f && rb.velocity.y<.1f){
+                //jumpSoundEffect.Play();
+                rb.velocity=new Vector2(rb.velocity.x, 14f);
+            }
         }
     }
 
-
-    private void Update() {
-        if(idPlayer!=0 && !dashing){ //Queremos que dashing sea false porque si estas en un dash y se hace el update el dash no va, pq aunque el dash le de la velocity
-            if(idPlayer==1){         //que deberia, el update la cambia tmbn y no va nada, entonces, para eso tenemos que el update se hace si no estamos en un dash
+    private void Move(InputAction.CallbackContext context){
+        Debug.Log(this.gameObject.name + "move");
+        if(context.control.device.deviceId == deviceController.getPlayerControllerId(idPlayer) || context.control.device is Keyboard){
+            if(idPlayer == 1){
                 inputVec=inputsPlayer.Movement.Move.ReadValue<Vector2>();
             }else{
                 inputVec=inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
             }
+        } 
+    }
+
+
+    private void Update() {
+        inputVec=new Vector2(0,0);
+        if(idPlayer!=0 && !dashing){ //Queremos que dashing sea false porque si estas en un dash y se hace el update el dash no va, pq aunque el dash le de la velocity
+            /*if(idPlayer==1){         //que deberia, el update la cambia tmbn y no va nada, entonces, para eso tenemos que el update se hace si no estamos en un 
+                if(inputsPlayer.Movement.Move.controls[0].device is Keyboard || inputsPlayer.Movement.Move.controls[0].device.deviceId == deviceController.getPlayer1ControllerId()){
+                    inputVec=inputsPlayer.Movement.Move.ReadValue<Vector2>();
+                }
+            }else{
+                Debug.Log(inputsPlayer.MovementP2.Move.controls[0].device);
+                if(inputsPlayer.MovementP2.Move.controls[0].device is Keyboard || inputsPlayer.MovementP2.Move.controls[0].device.deviceId == deviceController.getPlayer2ControllerId()){
+                    inputVec=inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
+                }
+            }*/
+            //InputDevice device=deviceController.getDevice(idPlayer);
+
+            //Debug.Log(inputVec);
+            InputDevice a = deviceController.getDeviceOfPlayer(idPlayer);
+            if(a != null){
+                Debug.Log(a.GetChildControl<Vector2Control>("leftStick").ReadValue());
+                inputVec = a.GetChildControl<Vector2Control>("leftStick").ReadValue();
+            }
+            if(inputVec.x < .5 && inputVec.x > 0-.5){
+                if(idPlayer == 1){
+                    inputVec =inputsPlayer.Movement.Move.ReadValue<Vector2>();
+                }else{
+                    inputVec =inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
+                }
+            }
+
+            /*if(idPlayer==1){
+                Debug.Log("---------------------");
+            foreach( InputControl device in inputsPlayer.Movement.Move.controls){
+                Debug.Log(device.device.name + " " + device.device.deviceId);
+            }
+            Debug.Log("---------------------------");
+            }*/
             rb.velocity=new Vector2(inputVec.x*movementSpeed, rb.velocity.y);
             UpdateAnimationState(inputVec.x);
         }
@@ -148,13 +200,6 @@ public class PlayerMovement: MonoBehaviour
         movementSpeed+=2;
     }
 
-    public void setControllerID(int id){
-        controllerID = id;
-    }
-
-    public int getControllerID(){
-        return controllerID;
-    }
     /*private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);

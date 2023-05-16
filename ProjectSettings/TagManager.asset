@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
+  - Texts/Displays
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 2173410391
+    locked: 0
+  - name: Decorations
+    uniqueID: 2307249403
     locked: 0

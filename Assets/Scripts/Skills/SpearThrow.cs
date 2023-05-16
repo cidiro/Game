@@ -10,7 +10,7 @@ namespace Skills{
         [SerializeField]private int proyectileSpeed=10;
         [SerializeField]private int verticalPower=2;
         private SpriteRenderer playerSprite;
-        void Start()
+        new void Start()
         {
             base.Start();
             playerSprite = player.GetComponent<SpriteRenderer>();

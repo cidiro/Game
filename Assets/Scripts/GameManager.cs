@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     //the values of the existing player. This because when a player dies not only the hp stat is changed, theres also
     //values related to the collider and RigidBody that are modified.
     private static GameObject player1=null, player2=null, copyp1, copyp2;
-    
     //The name of the sceene which has the world the players are going to fight in
     private static string worldName;
 
@@ -26,8 +25,8 @@ public class GameManager : MonoBehaviour
             player1.transform.position = new Vector3(-3.33f, 1, 0);
             player2.transform.position = new Vector3(13.33f, 1, 0);
         }else{//Las coordenadas de spawn en el mundo 2
-            player1.transform.position = new Vector3(0.33f, 1, 0);
-            player2.transform.position = new Vector3(1.33f, 1, 0);
+            player1.transform.position = new Vector3(-5.33f, -1, 0);
+            player2.transform.position = new Vector3(17.33f, -1, 0);
         }
         //Al entrar a partida descongelamos los jugadores para que se puedan mover
         player1.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePosition;
@@ -40,6 +39,11 @@ public class GameManager : MonoBehaviour
         player1=p1;
         player2=p2;
         
+    }
+
+    public static void dissablePlayers(){
+        player1.GetComponent<Player>().disableControls();
+        player2.GetComponent<Player>().disableControls();
     }
 
     //Params: character-> The player/character to be added to the fight.
@@ -97,9 +101,10 @@ public class GameManager : MonoBehaviour
 
         //Going back to the fight sceene
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
-        SceneManager.LoadScene(worldName);
-        player1.transform.position=new Vector3(-3.33f, 1, 0);
-        player2.transform.position=new Vector3(13.33f, 1, 0);       
+        StartGame();
+        //SceneManager.LoadScene(worldName);
+        //player1.transform.position=new Vector3(-3.33f, 1, 0);
+        //player2.transform.position=new Vector3(13.33f, 1, 0);       
 
     }
     
@@ -111,8 +116,8 @@ public class GameManager : MonoBehaviour
         Destroy(player1);
         player2.GetComponent<Player>().disableControls();
         Destroy(player2);
-        Destroy(copyp1);
-        Destroy(copyp2);
+        //Destroy(copyp1);
+        //Destroy(copyp2);
 
         //Go to the character selection scene
         SceneManager.LoadScene("CharacterSelection");
@@ -168,6 +173,7 @@ public class GameManager : MonoBehaviour
         GameObject transition = GameObject.Find("Transition");
     }
 
+
     public static void EnterSceneTransition(){
 
     }
@@ -179,4 +185,5 @@ public class GameManager : MonoBehaviour
     public static GameObject getPlayer2(){
         return player2;
     }
+
 }

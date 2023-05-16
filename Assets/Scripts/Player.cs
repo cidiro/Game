@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         //We set dead to true in the animator to trigger the death animation, and also make the body static, so it cant move no more.
         animator.SetBool("dead", true);
         rigidbody.bodyType = RigidbodyType2D.Static;
+        GameManager.dissablePlayers();
         deathSound.Play();
         //Destroy(textMesh.gameObject);
 

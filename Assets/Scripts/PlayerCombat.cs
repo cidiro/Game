@@ -11,6 +11,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Skill basicAttack;
     [SerializeField] private Skill specialAttack;
     [SerializeField] private Skill dash;
+
+    private InputDeviceController deviceController;
+    private int idController;
     private InputsPlayer input;
 
     //As soon as a player is created to want to set his combat inputs, this is why we do it in the Start method.
@@ -53,19 +56,36 @@ public class PlayerCombat : MonoBehaviour
             input.MovementP2.Dash.performed += useDash;
         }
 
+        deviceController=GameObject.Find("InputDeviceManager").GetComponent<InputDeviceController>();
+
+    }
+
+    private void Update() {
+        if(GetComponent<Player>().getID() == 1){
+            idController = deviceController.getPlayer1ControllerId();
+        }else{
+            idController = deviceController.getPlayer2ControllerId();
+        }
     }
 
     //This are the useSkill methods we see above, when subscribing to an input this are needed, they dont need to be allways called useSkill,
     //but they are needed because we need the CallbackContext for it to work, even if we dont use it. This methods call the actual skills and 
     //dash of the player.
     private void useBasicAttack(InputAction.CallbackContext context){ //El callback context solo esta porque hace falta para poder subscribir la funcion, pero no
-        basicAttack.UseSkill();                                       //hacemos nada con el a parte de declararlo como entrada
+        if(context.control.device.deviceId == idController || context.control.device is Keyboard){
+            basicAttack.UseSkill();      
+        }
+                                 //hacemos nada con el a parte de declararlo como entrada
     }
     private void useSpecialAttack(InputAction.CallbackContext context){
-        specialAttack.UseSkill();
+       if(context.control.device.deviceId == idController || context.control.device is Keyboard){
+            specialAttack.UseSkill();      
+        }
     }
     private void useDash(InputAction.CallbackContext context){
-        dash.UseSkill();
+       if(context.control.device.deviceId == idController || context.control.device is Keyboard){
+            dash.UseSkill();      
+        }
     }
 
     //For disabling the combat controls of a player, we want to first disable the inputs we earlier activated, and then we unsubscribe to the imputs

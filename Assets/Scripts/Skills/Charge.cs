@@ -10,7 +10,7 @@ namespace Skills{
         //this boolean will indicate if we are charging or not
         private bool active=false;
         private Vector2 colliderBounds;
-        void Start()
+        new void Start()
         {
             base.Start();
             playerSprite = player.GetComponent<SpriteRenderer>();
@@ -55,7 +55,7 @@ namespace Skills{
                 }else{
                     rb.velocity = new Vector2(40f, rb.velocity.y);//quizas poner la y como 0 para que el dash sea full horizontal siempre
                 }
-                animator.SetBool("charge",true);
+                animator.SetBool("charge",true);                
                 StartCoroutine(chargeWait(0.5f));
             }
         }
