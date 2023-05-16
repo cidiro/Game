@@ -461,7 +461,7 @@ MonoBehaviour:
     m_ActionName: MovementP2/Jump[/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &6984706338463088199
@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
+  jumpForce: 14
   jumpSoundEffect: {fileID: 0}
 --- !u!114 &1474935286969877333
 MonoBehaviour:

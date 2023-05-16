@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &31917595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 23963383967469633, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+  m_PrefabInstance: {fileID: 23963384440718315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &221706390
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_text
       value: "CHAMAN.\n-Attack\n-Cooldown\n+Speed\n-Health\n------------------\nSA:
-        Throwing spear \n\n\n"
+        Throwing spike ball \n\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
@@ -511,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 31917595}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1368197061
@@ -556,8 +561,8 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 0
-  m_PointerBehavior: 0
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
 --- !u!1001 &1424006860
 PrefabInstance:
@@ -672,15 +677,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
-      value: 0.19215688
+      value: 0.3764706
       objectReference: {fileID: 0}
     - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Colors.m_SelectedColor.g
-      value: 0.24313727
+      value: 0.84313726
       objectReference: {fileID: 0}
     - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
-      value: 0.90196085
+      value: 0.11764706
       objectReference: {fileID: 0}
     - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
@@ -718,10 +723,7 @@ PrefabInstance:
         ------------------
 
         SA: Lick,
-        reduces enemy speed
-
-
-'
+        reduces enemy speed'
       objectReference: {fileID: 0}
     - target: {fileID: 7340054046242570868, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: infoToShow
@@ -1406,7 +1408,10 @@ PrefabInstance:
         ------------------
 
         SA:
-        Charge, pushes enemy in the charge direction'
+        Charge
+
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_fontSize
@@ -1538,12 +1543,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.3764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.84313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1841134853}
     - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 23963384440718316}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: addCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: changeColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonColor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 448338463079362727, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_text
@@ -1573,7 +1622,11 @@ PrefabInstance:
         ------------------
 
         SA: Spinning
-        attck, throws enemy into the air'
+        attck
+
+
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 2861182268996311671, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: m_Enabled
@@ -1616,8 +1669,34 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7340054046242570868, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+      propertyPath: boton
+      value: 
+      objectReference: {fileID: 23963384440718317}
+    - target: {fileID: 7340054046242570868, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
       propertyPath: infoToShow
       value: No me elijas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+--- !u!114 &23963384440718316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1707698426820895696, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+  m_PrefabInstance: {fileID: 23963384440718315}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31917595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ae451a279491c4891dc0377241e33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &23963384440718317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 23963383967469639, guid: d448453bc2441974e9d3c0d616f71f0b, type: 3}
+  m_PrefabInstance: {fileID: 23963384440718315}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31917595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

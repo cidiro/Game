@@ -10,6 +10,7 @@ public class PlayerMovement: MonoBehaviour
     private Rigidbody2D rb;
     private PlayerInput input;
     [SerializeField]private float movementSpeed=5f;
+    [SerializeField]private float jumpForce=14f;
     private InputsPlayer inputsPlayer;
     private enum MovementState { idle, running, jumping, falling }
     private SpriteRenderer sprite;
@@ -17,8 +18,6 @@ public class PlayerMovement: MonoBehaviour
     private Vector2 inputVec;
     private int idPlayer;
     private bool dashing = false;
-    [SerializeField] private AudioSource jumpSoundEffect;
-
     private InputDeviceController deviceController;
 
     //private Collider2D coll;
@@ -47,12 +46,10 @@ public class PlayerMovement: MonoBehaviour
             Debug.Log(gameObject.name+"Subscrito a movement");
             inputsPlayer.Movement.Enable();
             inputsPlayer.Movement.Jump.performed += Jump;
-            inputsPlayer.Movement.Move.performed += Move;
         }else{
             Debug.Log(gameObject.name+"Subscrito a movement2");
             inputsPlayer.MovementP2.Enable();
             inputsPlayer.MovementP2.Jump.performed += Jump;
-            inputsPlayer.MovementP2.Move.performed += Move;
         }
     }
 
@@ -62,11 +59,11 @@ public class PlayerMovement: MonoBehaviour
         if(idPlayer==1){
             inputsPlayer.Movement.Disable();
             inputsPlayer.Movement.Jump.performed -= Jump;
-            inputsPlayer.Movement.Move.performed -= Move;
+            //inputsPlayer.Movement.Move.performed -= Move;
         }else{
             inputsPlayer.MovementP2.Disable();
             inputsPlayer.MovementP2.Jump.performed -= Jump;
-            inputsPlayer.MovementP2.Move.performed -= Move;
+            //inputsPlayer.MovementP2.Move.performed -= Move;
         }
     }
 
@@ -79,8 +76,7 @@ public class PlayerMovement: MonoBehaviour
         Debug.Log(gameObject.name + " jumped");
         if(context.control.device.deviceId == deviceController.getPlayerControllerId(idPlayer) || context.control.device is Keyboard){
             if(rb.velocity.y>-.1f && rb.velocity.y<.1f){
-                //jumpSoundEffect.Play();
-                rb.velocity=new Vector2(rb.velocity.x, 14f);
+                rb.velocity=new Vector2(rb.velocity.x, jumpForce);
             }
         }
     }
@@ -99,40 +95,22 @@ public class PlayerMovement: MonoBehaviour
 
     private void Update() {
         inputVec=new Vector2(0,0);
-        if(idPlayer!=0 && !dashing){ //Queremos que dashing sea false porque si estas en un dash y se hace el update el dash no va, pq aunque el dash le de la velocity
-            /*if(idPlayer==1){         //que deberia, el update la cambia tmbn y no va nada, entonces, para eso tenemos que el update se hace si no estamos en un 
-                if(inputsPlayer.Movement.Move.controls[0].device is Keyboard || inputsPlayer.Movement.Move.controls[0].device.deviceId == deviceController.getPlayer1ControllerId()){
-                    inputVec=inputsPlayer.Movement.Move.ReadValue<Vector2>();
-                }
-            }else{
-                Debug.Log(inputsPlayer.MovementP2.Move.controls[0].device);
-                if(inputsPlayer.MovementP2.Move.controls[0].device is Keyboard || inputsPlayer.MovementP2.Move.controls[0].device.deviceId == deviceController.getPlayer2ControllerId()){
-                    inputVec=inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
-                }
-            }*/
-            //InputDevice device=deviceController.getDevice(idPlayer);
-
-            //Debug.Log(inputVec);
-            InputDevice a = deviceController.getDeviceOfPlayer(idPlayer);
-            if(a != null){
-                Debug.Log(a.GetChildControl<Vector2Control>("leftStick").ReadValue());
-                inputVec = a.GetChildControl<Vector2Control>("leftStick").ReadValue();
+        if(idPlayer!=0 && !dashing){
+            InputDevice leftJoyStick = deviceController.getDeviceOfPlayer(idPlayer); //Miramos si hay input del joystick del mando del jugador, si no tiene mando será null
+            if(leftJoyStick != null){//Si si que tiene mando leemos el valor del joystick iszuierdo para el movimiento
+                inputVec = leftJoyStick.GetChildControl<Vector2Control>("leftStick").ReadValue();
             }
-            if(inputVec.x < .5 && inputVec.x > 0-.5){
+            if(inputVec.x < .4 && inputVec.x > -.4){//aqui, comprobamos la x ya que, si no hay mando será 0, y si hay mando pero esta por debajo de 0.4 y encima de -0.4 podria deberse a que haya
+                                                    //drifting en el joystick en vez de que el jugador realmente quiera moverse, asique en cualquiera de los dos casos leemos Move, que esta asociado al
+                                                    //movimiento en teclado
                 if(idPlayer == 1){
                     inputVec =inputsPlayer.Movement.Move.ReadValue<Vector2>();
                 }else{
                     inputVec =inputsPlayer.MovementP2.Move.ReadValue<Vector2>();
                 }
             }
-
-            /*if(idPlayer==1){
-                Debug.Log("---------------------");
-            foreach( InputControl device in inputsPlayer.Movement.Move.controls){
-                Debug.Log(device.device.name + " " + device.device.deviceId);
-            }
-            Debug.Log("---------------------------");
-            }*/
+            //En general lo que hemos hecho hasta llegar aqui es: si el jugador tiene mando y la x no esta en el rango que podria ser movimiento no intencional, usamos los datos de el mando para el 
+            //movimiento, pero si, o el jugador no tiene mando o los valores del mando estan en el rango que podrian ser no intencionales, se usan los datos del teclado/move.
             rb.velocity=new Vector2(inputVec.x*movementSpeed, rb.velocity.y);
             UpdateAnimationState(inputVec.x);
         }

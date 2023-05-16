@@ -102,10 +102,6 @@ public class GameManager : MonoBehaviour
         //Going back to the fight sceene
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
         StartGame();
-        //SceneManager.LoadScene(worldName);
-        //player1.transform.position=new Vector3(-3.33f, 1, 0);
-        //player2.transform.position=new Vector3(13.33f, 1, 0);       
-
     }
     
     //Method used when the player selects to change characters at the end of a fight, this means, going back to the character selection scene,

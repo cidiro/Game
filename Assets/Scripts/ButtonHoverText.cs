@@ -12,17 +12,18 @@ public class ButtonHoverText : MonoBehaviour, IPointerEnterHandler, IPointerExit
     //why we do SetActive to the GameObject itself. If we were to have cases where the textWindow could contain
     //things apart from the text and font we would need to change the .setActive() for .GetComponent<TestMeshProUGUI>().SetActive()
     [SerializeField] private GameObject textWindow;
+    [SerializeField] private Button boton;
 
     private void Start() {
-        textWindow.SetActive(false);    
+        //textWindow.SetActive(false);    
     }
 
     public void OnPointerEnter(PointerEventData data){
-        textWindow.SetActive(true);
+        //textWindow.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData data){
-        textWindow.SetActive(false);
+        //textWindow.SetActive(false);
     }
-
+    
 }

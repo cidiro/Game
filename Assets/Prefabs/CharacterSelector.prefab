@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23963383967469638}
   - component: {fileID: 23963383967469639}
   - component: {fileID: 7340054046242570868}
+  - component: {fileID: 1707698426820895696}
   m_Layer: 5
   m_Name: CharacterSelector
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.11764707, g: 0.8431373, b: 0.37647063, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.89019614, g: 0.24313727, b: 0.18823531, a: 1}
+    m_SelectedColor: {r: 0.11764706, g: 0.84313726, b: 0.3764706, a: 1}
     m_DisabledColor: {r: 0.909804, g: 0.25490198, b: 0.20000002, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -135,7 +136,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1707698426820895696}
+        m_TargetAssemblyTypeName: ButtonColor, Assembly-CSharp
+        m_MethodName: changeColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7340054046242570868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23963383967469633}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f581ef53dac4424fa7c7f944ad273bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textWindow: {fileID: 3779467056443753493}
+  boton: {fileID: 23963383967469639}
+--- !u!114 &1707698426820895696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +171,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 23963383967469633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f581ef53dac4424fa7c7f944ad273bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 42ae451a279491c4891dc0377241e33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textWindow: {fileID: 3779467056443753493}
+  alreadySelectedColor: {r: 0.754717, g: 0.055013653, b: 0, a: 1}
+  boton: {fileID: 23963383967469639}
 --- !u!1 &3779467056443753493
 GameObject:
   m_ObjectHideFlags: 0

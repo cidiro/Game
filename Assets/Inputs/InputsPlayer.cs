@@ -491,7 +491,7 @@ public partial class @InputsPlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f0700cf7-4a86-407d-a9b3-9d9309a4a516"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

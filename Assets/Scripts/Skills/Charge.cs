@@ -10,6 +10,7 @@ namespace Skills{
         //this boolean will indicate if we are charging or not
         private bool active=false;
         private Vector2 colliderBounds;
+        [SerializeField]private AudioSource chargeDone;
         new void Start()
         {
             base.Start();
@@ -46,10 +47,12 @@ namespace Skills{
 
         public override void UseSkill()
         {
+            chargeDone.Play();
             if(Time.time - lastUse >= cooldown){
                 lastUse = Time.time;
                 active=true;
                 player.GetComponent<PlayerMovement>().toggleDashing();
+                //chargeDone.Play();
                 if(playerSprite.flipX == true){
                     rb.velocity = new Vector2(-40f, rb.velocity.y);
                 }else{
