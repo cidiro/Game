@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour
     }
 
     public static void dissablePlayers(){
-        player1.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        player2.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        //player1.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        //player2.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        
         player1.GetComponent<Player>().disableControls();
         player2.GetComponent<Player>().disableControls();
     }
@@ -101,8 +102,6 @@ public class GameManager : MonoBehaviour
         player2.GetComponent<PlayerMovement>().EnableControlls();
         DontDestroyOnLoad(player2);        
 
-        //Going back to the fight sceene
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
         StartGame();
     }
     

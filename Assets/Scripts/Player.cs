@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
         rigidbody.bodyType = RigidbodyType2D.Static;
         GameManager.dissablePlayers();
         deathSound.Play();
-        //Destroy(textMesh.gameObject);
 
         //Call the EndGame method in this class after waiting for 3 seconds.
         Invoke("EndGame", 3f);
