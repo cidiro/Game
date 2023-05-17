@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
             player1.transform.position = new Vector3(-3.33f, 1, 0);
             player2.transform.position = new Vector3(13.33f, 1, 0);
         }else{//Las coordenadas de spawn en el mundo 2
-            player1.transform.position = new Vector3(-5.33f, -1, 0);
-            player2.transform.position = new Vector3(17.33f, -1, 0);
+            player1.transform.position = new Vector3(-5f, -1, 0);
+            player2.transform.position = new Vector3(17f, -1, 0);
         }
         //Al entrar a partida descongelamos los jugadores para que se puedan mover
         player1.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePosition;
@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     }
 
     public static void dissablePlayers(){
+        player1.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        player2.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         player1.GetComponent<Player>().disableControls();
         player2.GetComponent<Player>().disableControls();
     }
@@ -145,6 +147,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public static string GetWinnerName(){
+        if(Winner == 1){
+            return player1.name;
+        }
+        return player2.name;
+
+    }
+
     //Params: worldName-> The name of the scene in which the characters will fight
     //Method called when selecting a world in the World Selection scene, in this we use the world name we recieve 
     //to set the world name of the game manager, and then, because thats the only thing we have to do in the world
@@ -163,15 +173,6 @@ public class GameManager : MonoBehaviour
     //Method used when wanting to switch to the next scene, acording to the indexes of the scenes in the build settings.
     public static void NextScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public static void ExitSceneTransition(){
-        GameObject transition = GameObject.Find("Transition");
-    }
-
-
-    public static void EnterSceneTransition(){
-
     }
 
     public static GameObject getPlayer1(){

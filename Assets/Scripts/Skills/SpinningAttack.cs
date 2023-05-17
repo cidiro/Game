@@ -6,6 +6,7 @@ namespace Skills
 {
     public class SpinningAttack : Attack
     {
+        [SerializeField]private AudioSource attackSound;
         new private void Start()
         {
             base.Start();
@@ -24,15 +25,11 @@ namespace Skills
 
         public override void UseSkill(){
 
-            //Debug.Log(LayerMask.LayerToName(enemyLayers)); //btw, asi se ve el nombre de una layer
-
-
             //Check if enough time has past since the las time we used this attack
             if (Time.time-lastUse >= cooldown)
             {
                 lastUse=Time.time;
-                //swingDone.Play(); Descomentar cuando el ataque tenga un sonido.
-                Debug.Log("Spin");
+                attackSound.Play();
 
                 //In hitEnemies, we will store the Colliders of the enemies that are hit with our Box. For this, the position of the player sets
                 //the center of the box, the vector made by the attackRange and 1 will define the half of the width and height of the box, and lastly 

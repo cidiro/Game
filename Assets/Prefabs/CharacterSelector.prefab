@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 23963383967469637}
   - component: {fileID: 23963383967469638}
   - component: {fileID: 23963383967469639}
-  - component: {fileID: 7340054046242570868}
   - component: {fileID: 1707698426820895696}
   m_Layer: 5
   m_Name: CharacterSelector
@@ -148,20 +147,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7340054046242570868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23963383967469633}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f581ef53dac4424fa7c7f944ad273bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textWindow: {fileID: 3779467056443753493}
-  boton: {fileID: 23963383967469639}
 --- !u!114 &1707698426820895696
 MonoBehaviour:
   m_ObjectHideFlags: 0

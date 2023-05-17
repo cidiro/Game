@@ -47,12 +47,11 @@ namespace Skills{
 
         public override void UseSkill()
         {
-            chargeDone.Play();
             if(Time.time - lastUse >= cooldown){
                 lastUse = Time.time;
                 active=true;
                 player.GetComponent<PlayerMovement>().toggleDashing();
-                //chargeDone.Play();
+                chargeDone.Play();
                 if(playerSprite.flipX == true){
                     rb.velocity = new Vector2(-40f, rb.velocity.y);
                 }else{

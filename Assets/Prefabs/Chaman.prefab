@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4520970995110876677}
   cooldown: 3.5
-  attackDamage: 20
+  attackDamage: 25
   attackRange: 0
   attackPoint: {fileID: 391381093333505091}
   enemyLayers:
@@ -476,9 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc30d962cfff6a47977d6f8cfae0e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 8
+  movementSpeed: 9
   jumpForce: 14
-  jumpSoundEffect: {fileID: 0}
 --- !u!114 &1474935286969877333
 MonoBehaviour:
   m_ObjectHideFlags: 0

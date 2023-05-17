@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WinnerImage: {fileID: 5798843}
   LooserImage: {fileID: 923335884}
+  text: {fileID: 781855905}
 --- !u!1 &1723260431
 GameObject:
   m_ObjectHideFlags: 0
